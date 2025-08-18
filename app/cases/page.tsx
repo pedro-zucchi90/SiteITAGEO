@@ -196,7 +196,7 @@ export default function CasesPage() {
               <div className="text-emerald-800 text-sm">Projetos Realizados</div>
             </div>
             <div className="bg-white/70 p-4 rounded-xl text-center">
-              <div className="text-2xl font-bold text-emerald-600">15+</div>
+              <div className="text-2xl font-bold text-emerald-600">5+</div>
               <div className="text-emerald-800 text-sm">Anos de Experiência</div>
             </div>
             <div className="bg-white/70 p-4 rounded-xl text-center">
@@ -306,44 +306,56 @@ export default function CasesPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-white/50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-emerald-900 text-center mb-12">O que Nossos Clientes Dizem</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-emerald-900">João Silva</h4>
-                  <p className="text-emerald-600 text-sm">Diretor Ambiental - Indústria ABC</p>
-                </div>
+      {/* Depoimentos em formato de lista JSON */}
+      {(() => {
+        const testimonials = [
+          {
+            nome: "João Silva",
+            cargo: "Diretor Ambiental - Indústria ABC",
+            depoimento: "A ITÁGEO demonstrou excelência técnica e profissionalismo em todo o processo de licenciamento. Conseguimos nossa licença dentro do prazo e sem complicações."
+          },
+          {
+            nome: "Maria Santos",
+            cargo: "Gerente de Sustentabilidade - Rede XYZ",
+            depoimento: "O trabalho da equipe ITÁGEO superou nossas expectativas. Conseguimos reduzir significativamente nossos resíduos e ainda economizar recursos."
+          },
+          {
+            nome: "Carlos Oliveira",
+            cargo: "Coordenador de Projetos - Logística DEF",
+            depoimento: "A consultoria foi fundamental para o sucesso do nosso projeto logístico. A equipe é extremamente competente e comprometida."
+          },
+          {
+            nome: "Ana Costa",
+            cargo: "Engenheira Ambiental - Siderúrgica GHI",
+            depoimento: "O monitoramento da qualidade do ar implementado pela ITÁGEO trouxe resultados excelentes. Estamos muito satisfeitos com o serviço prestado."
+          }
+        ]
+        return (
+          <section className="py-16 px-4 bg-white/50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold text-emerald-900 text-center mb-12">O que Nossos Clientes Dizem</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {testimonials.map((item, idx) => (
+                  <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <Award className="w-6 h-6 text-emerald-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-emerald-900">{item.nome}</h4>
+                        <p className="text-emerald-600 text-sm">{item.cargo}</p>
+                      </div>
+                    </div>
+                    <p className="text-emerald-700 leading-relaxed">
+                      "{item.depoimento}"
+                    </p>
+                  </div>
+                ))}
               </div>
-              <p className="text-emerald-700 leading-relaxed">
-                "A ITÁGEO demonstrou excelência técnica e profissionalismo em todo o processo de licenciamento.
-                Conseguimos nossa licença dentro do prazo e sem complicações."
-              </p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-emerald-900">Maria Santos</h4>
-                  <p className="text-emerald-600 text-sm">Gerente de Sustentabilidade - Rede XYZ</p>
-                </div>
-              </div>
-              <p className="text-emerald-700 leading-relaxed">
-                "O trabalho da equipe ITÁGEO superou nossas expectativas. Conseguimos reduzir significativamente nossos
-                resíduos e ainda economizar recursos."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        )
+      })()}
 
       {/* CTA Section */}
       <section className="py-16 px-4">
@@ -352,10 +364,13 @@ export default function CasesPage() {
           <p className="text-xl text-emerald-700 leading-relaxed mb-8">
             Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar a excelência ambiental.
           </p>
-          <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 mx-auto">
+          <a
+            href="/contato"
+            className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 mx-auto"
+          >
             Solicitar Orçamento
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </section>
     </div>
