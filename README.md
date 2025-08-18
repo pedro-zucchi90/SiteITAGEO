@@ -4,18 +4,18 @@
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Styled with Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 Website institucional da **ITÁGEO Ambiental**, empresa especializada em consultoria ambiental sustentável. O site apresenta os serviços da empresa, cases de sucesso, informações institucionais e canais de contato, desenvolvido com foco em sustentabilidade e inovação ambiental.
 
-### 🎯 Objetivos
+### Objetivos
 - Apresentar a empresa e seus valores
 - Destacar os serviços de consultoria ambiental
 - Exibir cases de sucesso e projetos realizados
 - Facilitar o contato com clientes e parceiros
 - Promover a imagem de sustentabilidade e inovação
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **[Next.js 14](https://nextjs.org/)** - Framework React com App Router
 - **[React 18](https://reactjs.org/)** - Biblioteca para interfaces de usuário
@@ -25,7 +25,7 @@ Website institucional da **ITÁGEO Ambiental**, empresa especializada em consult
 - **[Lucide React](https://lucide.dev/)** - Ícones SVG otimizados
 - **[Google Fonts](https://fonts.google.com/)** - Tipografia (Montserrat + Open Sans)
 
-## 📦 Instalação e Configuração
+## Instalação e Configuração
 
 ### Pré-requisitos
 - Node.js 18+ 
@@ -38,34 +38,34 @@ cd ITAGEO-Site
 \`\`\`
 
 ### 2. Instalar Dependências
-\`\`\`bash
+```bash
 npm install
 # ou
 yarn install
 # ou
 pnpm install
-\`\`\`
+```
 
 ### 3. Executar em Desenvolvimento
-\`\`\`bash
+```bash
 npm run dev
 # ou
 yarn dev
 # ou
 pnpm dev
-\`\`\`
+```
 
 O projeto estará disponível em [http://localhost:3000](http://localhost:3000)
 
 ### 4. Build para Produção
-\`\`\`bash
+```bash
 npm run build
 npm start
-\`\`\`
+```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
-\`\`\`
+```
 ITAGEO-Site/
 ├── app/                          # App Router (Next.js 14)
 │   ├── cases/                    # Página de Cases de Sucesso
@@ -112,11 +112,11 @@ ITAGEO-Site/
 ├── README.md                     # Documentação do projeto
 ├── tailwind.config.js            # Configuração do Tailwind CSS
 └── tsconfig.json                 # Configuração do TypeScript
-\`\`\`
+```
 
-## 🎨 Funcionalidades
+## Funcionalidades
 
-### 🏠 Página Inicial
+### Página Inicial
 - **Hero Section**: Apresentação principal com call-to-actions
 - **Estatísticas**: Métricas de projetos e experiência
 - **Quem Somos**: Informações institucionais da empresa
@@ -125,33 +125,33 @@ ITAGEO-Site/
 - **Nossas Soluções**: Overview dos serviços oferecidos
 - **Processo**: Metodologia de trabalho em 4 etapas
 
-### 📞 Página de Contato
+### Página de Contato
 - **Fale Conosco**: Informações de contato direto
 - **Trabalhe Conosco**: Formulário para envio de currículos
 - **Ouvidoria**: Canal de denúncias e reclamações
 - **Localização**: Integração com Google Maps
 - **Informações**: Endereço, telefone e horários
 
-### 🏢 Páginas Institucionais (/sobre)
+### Páginas Institucionais (/sobre)
 - **Quem Somos**: História e valores da empresa
 - **Nosso Propósito**: Missão, visão e pilares
 - **Serviços**: Detalhamento dos serviços oferecidos
 - **Localização**: Informações de endereço e atuação
 
-### 🔧 Página de Soluções
+### Página de Soluções
 - **Licenciamento Ambiental**: Processos e documentação
 - **Consultoria e Assessoria**: Suporte especializado
 - **Estudos Ambientais**: Análises e relatórios técnicos
 - **Gestão de Resíduos**: Planos e implementação
 - **Monitoramento Ambiental**: Acompanhamento contínuo
 
-### 📊 Página de Cases
+### Página de Cases
 - **Portfolio**: Projetos realizados com sucesso
 - **Estudos de Caso**: Detalhamento de soluções implementadas
 - **Resultados**: Métricas e impactos alcançados
 - **Depoimentos**: Feedback de clientes atendidos
 
-## 🎨 Design System
+## Design System
 
 ### Cores Principais
 - **Verde Primário**: `#22c55e` (Sustentabilidade)
@@ -171,7 +171,7 @@ ITAGEO-Site/
 - **Forms**: Validação e feedback visual
 - **Navigation**: Menu responsivo com dropdowns
 
-## 🌐 Deploy
+## Deploy
 
 ### Vercel (Recomendado)
 O projeto está configurado para deploy automático na Vercel:
@@ -189,14 +189,14 @@ O projeto também pode ser deployado em:
 - Railway
 - Render
 
-## 📱 Responsividade
+## Responsividade
 
 O site é totalmente responsivo e otimizado para:
 - **Desktop**: 1024px+
 - **Tablet**: 768px - 1023px
 - **Mobile**: 320px - 767px
 
-## ♿ Acessibilidade
+## Acessibilidade
 
 - Contraste WCAG AA compliant
 - Navegação por teclado
@@ -204,17 +204,17 @@ O site é totalmente responsivo e otimizado para:
 - Estrutura semântica HTML5
 - ARIA labels e roles
 
-## 🔧 Scripts Disponíveis
+## Scripts Disponíveis
 
-\`\`\`bash
+```bash
 npm run dev          # Desenvolvimento local
 npm run build        # Build para produção
 npm run start        # Executar build de produção
 npm run lint         # Verificar código com ESLint
 npm run type-check   # Verificar tipos TypeScript
-\`\`\`
+```
 
-## 🤝 Contribuição
+## Contribuição
 
 1. Fork o projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
@@ -222,11 +222,11 @@ npm run type-check   # Verificar tipos TypeScript
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📄 Licença
+## Licença
 
 Este projeto é propriedade da **ITÁGEO Ambiental**. Todos os direitos reservados.
 
-## 📞 Contato
+## Contato
 
 **ITÁGEO Ambiental**
 - **Endereço**: Av. Tancredo Neves, 294 - Pioneiros, Itá - SC, 89760-000
