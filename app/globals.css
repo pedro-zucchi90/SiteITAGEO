@@ -126,6 +126,11 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
   }
+  html, body {
+    margin: 0;
+    padding: 0; 
+    overflow-x: hidden;
+  }
   h1,
   h2,
   h3,
@@ -134,5 +139,13 @@
   h6 {
     font-family: var(--font-mono);
     font-weight: 600;
+  }
+  .full-bleed {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
   }
 }

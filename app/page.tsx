@@ -112,7 +112,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/modern-eco-building.png')] bg-cover bg-center bg-no-repeat"></div>
@@ -417,8 +417,8 @@ export default function HomePage() {
           </div>
 
           {/* CTA Section */}
-          <section className="py-20 px-4 bg-emerald-600">
-            <div className="max-w-4xl mx-auto text-center text-white">
+          <section className="full-bleed overflow-x-hidden py-20 bg-emerald-600">
+            <div className="max-w-4xl mx-auto text-center text-white px-4">
               <h2 className="text-4xl font-bold mb-6">Pronto para Transformar seu Negócio?</h2>
               <p className="text-xl mb-8 opacity-90">
                 Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar a excelência ambiental.
@@ -442,6 +442,9 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+
+
         </div>
       </section>
     </main>

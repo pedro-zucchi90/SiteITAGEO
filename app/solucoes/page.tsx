@@ -163,7 +163,7 @@ export default function SolucoesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50">
-      {/* Hero Section */}
+      {/* Seção Hero */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6">Nossas Soluções</h1>
@@ -185,7 +185,7 @@ export default function SolucoesPage() {
         </div>
       </section>
 
-      {/* Solutions Grid */}
+      {/* Grid de Soluções */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-16">
@@ -199,7 +199,7 @@ export default function SolucoesPage() {
                   key={solution.id}
                   className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? "lg:grid-flow-col-dense" : ""}`}
                 >
-                  {/* Content */}
+                  {/* Conteúdo */}
                   <div className={!isEven ? "lg:col-start-2" : ""}>
                     <div className="flex items-center gap-4 mb-6">
                       <div className={`w-16 h-16 ${colors.icon} rounded-2xl flex items-center justify-center`}>
@@ -214,7 +214,7 @@ export default function SolucoesPage() {
                     <p className="text-lg text-emerald-700 leading-relaxed mb-8">{solution.description}</p>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                      {/* Benefits */}
+                      {/* Benefícios */}
                       <div>
                         <h3 className="text-xl font-bold text-emerald-900 mb-4">Benefícios</h3>
                         <ul className="space-y-2">
@@ -227,7 +227,7 @@ export default function SolucoesPage() {
                         </ul>
                       </div>
 
-                      {/* Process */}
+                      {/* Processo */}
                       <div>
                         <h3 className="text-xl font-bold text-emerald-900 mb-4">Processo</h3>
                         <ol className="space-y-2">
@@ -263,7 +263,7 @@ export default function SolucoesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Seção CTA */}
       <section className="py-16 px-4 bg-white/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-emerald-900 mb-6">Precisa de uma Solução Personalizada?</h2>
@@ -290,7 +290,7 @@ export default function SolucoesPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Seção de Estatísticas */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center">

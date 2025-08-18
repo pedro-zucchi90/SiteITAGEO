@@ -30,11 +30,11 @@ export default function LocalizacaoPage() {
                     <div>
                       <h3 className="font-semibold text-emerald-900 mb-1">Endereço</h3>
                       <p className="text-emerald-700">
-                        Rua das Palmeiras, 123
+                        Av. Tancredo Neves, 294
                         <br />
-                        Centro - São Paulo, SP
+                        Pioneiros, Itá - SC
                         <br />
-                        CEP: 01234-567
+                        89760-000
                       </p>
                     </div>
                   </div>
@@ -46,9 +46,7 @@ export default function LocalizacaoPage() {
                     <div>
                       <h3 className="font-semibold text-emerald-900 mb-1">Telefone</h3>
                       <p className="text-emerald-700">
-                        (11) 9999-9999
-                        <br />
-                        (11) 8888-8888
+                        (49) 3458-2055
                       </p>
                     </div>
                   </div>
@@ -60,9 +58,7 @@ export default function LocalizacaoPage() {
                     <div>
                       <h3 className="font-semibold text-emerald-900 mb-1">E-mail</h3>
                       <p className="text-emerald-700">
-                        contato@itageoambiental.com.br
-                        <br />
-                        comercial@itageoambiental.com.br
+                        itageo@itageoambiental.com.br
                       </p>
                     </div>
                   </div>
@@ -74,9 +70,7 @@ export default function LocalizacaoPage() {
                     <div>
                       <h3 className="font-semibold text-emerald-900 mb-1">Horário de Funcionamento</h3>
                       <p className="text-emerald-700">
-                        Segunda a Sexta: 8h às 18h
-                        <br />
-                        Sábado: 8h às 12h
+                        Segunda a Sexta: 8h às 12h e 13h às 18h<br />
                       </p>
                     </div>
                   </div>
@@ -84,15 +78,23 @@ export default function LocalizacaoPage() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
             <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-emerald-900 mb-6">Nossa Localização</h2>
-              <div className="aspect-video bg-emerald-100 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
-                  <p className="text-emerald-700 font-semibold">Mapa Interativo</p>
-                  <p className="text-emerald-600 text-sm">Visualização da nossa localização</p>
-                </div>
+              <h3 className="text-xl font-bold text-emerald-900 mb-4">Nossa Localização</h3>
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3542.123456789!2d-52.40123456789!3d-27.28123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e2c8f123456789%3A0x123456789abcdef!2sAv.%20Tancredo%20Neves%2C%20294%20-%20Pioneiros%2C%20It%C3%A1%20-%20SC%2C%2089760-000%2C%20Brazil!5e0!3m2!1sen!2sbr!4v1703123456789!5m2!1sen!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização ITÁGEO Ambiental - Av. Tancredo Neves, 294, Itá/SC"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-emerald-700 font-semibold">ITÁGEO Ambiental</p>
+                <p className="text-emerald-600 text-sm">Av. Tancredo Neves, 294 - Itá/SC</p>
               </div>
             </div>
           </div>
