@@ -31,10 +31,10 @@ Website institucional da **ITÁGEO Ambiental**, empresa especializada em consult
 - npm, yarn ou pnpm
 
 ### 1. Clonar o Repositório
-\`\`\`bash
+```bash
 git clone https://github.com/pedro-zucchi90/ITAGEO-Site.git
 cd ITAGEO-Site
-\`\`\`
+```
 
 ### 2. Instalar Dependências
 ```bash
