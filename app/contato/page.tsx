@@ -28,7 +28,7 @@ export default function ContatoPage() {
     servico: "",
     mensagem: "",
     arquivo: null as File | null,
-    // Ouvidoria fields
+    // Campos específicos da ouvidoria
     dataAcontecimento: "",
     localAcontecimento: "",
     relato: "",
@@ -64,7 +64,9 @@ export default function ContatoPage() {
     }
   }, [searchParams])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -79,9 +81,61 @@ export default function ContatoPage() {
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      const form = new FormData()
+      form.append("name", formData.nome)
+      form.append("email", formData.email)
+      form.append("phone", formData.telefone || "")
+      form.append("company", formData.empresa || "")
+      form.append("message", formData.mensagem || "")
+      form.append("type", activeForm)
+
+      if (activeForm === "trabalhe-conosco") {
+        form.append(
+          "description",
+          `Telefone: ${formData.telefone}
+Empresa: ${formData.empresa}
+Mensagem: ${formData.mensagem}`
+        )
+      } else if (activeForm === "ouvidoria") {
+        form.append(
+          "description",
+          `
+Telefone: ${formData.telefone}
+Empresa: ${formData.empresa}
+Serviço: ${formData.servico}
+Data do acontecimento: ${formData.dataAcontecimento}
+Local do acontecimento: ${formData.localAcontecimento}
+Relato: ${formData.relato}
+Mensagem: ${formData.mensagem}
+          `
+        )
+      } else {
+        // fale-conosco / outros
+        form.append(
+          "description",
+          `
+Telefone: ${formData.telefone}
+Empresa: ${formData.empresa}
+Serviço: ${formData.servico}
+Mensagem: ${formData.mensagem}
+          `
+        )
+      }
+
+      if (formData.arquivo) {
+        form.append("file", formData.arquivo)
+      }
+
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        body: form,
+      })
+
+      if (!res.ok) {
+        throw new Error("Erro ao enviar formulário")
+      }
+
       setSubmitStatus("success")
       setFormData({
         nome: "",
@@ -97,6 +151,8 @@ export default function ContatoPage() {
       })
     } catch (error) {
       setSubmitStatus("error")
+      console.error(error)
+      alert("Erro ao enviar a mensagem.")
     } finally {
       setIsSubmitting(false)
     }
@@ -246,7 +302,7 @@ export default function ContatoPage() {
               )}
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" encType="multipart/form-data">
                 {activeForm === "ouvidoria" ? (
                   <>
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
@@ -357,6 +413,35 @@ export default function ContatoPage() {
                         placeholder="Descreva detalhadamente o que aconteceu..."
                       />
                     </div>
+
+                    {/* Upload de arquivo para ouvidoria */}
+                    <div>
+                      <label htmlFor="arquivo" className="block text-sm font-semibold text-emerald-900 mb-2">
+                        Anexar Arquivo (opcional)
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id="arquivo"
+                          name="arquivo"
+                          onChange={handleFileChange}
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor="arquivo"
+                          className="w-full px-4 py-3 border-2 border-dashed border-emerald-300 rounded-xl hover:border-emerald-500 transition-colors cursor-pointer flex items-center justify-center gap-2 text-emerald-700"
+                        >
+                          <Upload className="w-5 h-5" />
+                          {formData.arquivo
+                            ? formData.arquivo.name
+                            : "Clique para anexar arquivo"}
+                        </label>
+                      </div>
+                      <p className="text-emerald-600 text-sm mt-2">
+                        Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB)
+                      </p>
+                    </div>
                   </>
                 ) : (
                   <>
@@ -449,7 +534,7 @@ export default function ContatoPage() {
                       />
                     </div>
 
-                    {/* File Upload */}
+                    {/* File Upload para todos os formulários */}
                     <div>
                       <label htmlFor="arquivo" className="block text-sm font-semibold text-emerald-900 mb-2">
                         {activeForm === "trabalhe-conosco" ? "Currículo *" : "Anexar Arquivo (opcional)"}

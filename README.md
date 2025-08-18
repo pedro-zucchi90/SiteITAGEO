@@ -31,10 +31,10 @@ Website institucional da **ITÁGEO Ambiental**, empresa especializada em consult
 - npm, yarn ou pnpm
 
 ### 1. Clonar o Repositório
-\`\`\`bash
+```bash
 git clone https://github.com/pedro-zucchi90/ITAGEO-Site.git
 cd ITAGEO-Site
-\`\`\`
+```
 
 ### 2. Instalar Dependências
 ```bash
@@ -67,24 +67,33 @@ npm start
 ```
 ITAGEO-Site/
 ├── app/                          # App Router (Next.js 14)
-│   ├── cases/                    # Página de Cases de Sucesso
+│   ├── cases/
 │   │   └── page.tsx
-│   ├── contato/                  # Página de Contato
+│   ├── contato/
 │   │   └── page.tsx
-│   ├── sobre/                    # Páginas Institucionais
+│   ├── sobre/
 │   │   ├── localizacao/
 │   │   ├── proposito/
 │   │   ├── quem-somos/
 │   │   ├── servicos/
 │   │   └── page.tsx
-│   ├── solucoes/                 # Página de Soluções
+│   ├── solucoes/
 │   │   └── page.tsx
-│   ├── globals.css               # Estilos globais e Tailwind
-│   ├── layout.tsx                # Layout raiz da aplicação
-│   ├── loading.tsx               # Componente de loading
-│   └── page.tsx                  # Página inicial (Homepage)
-├── components/                   # Componentes reutilizáveis
-│   ├── ui/                       # Componentes base (shadcn/ui)
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   └── page.tsx
+├── backend/                      # Backend Express/Nodemailer
+│   ├── controllers/              # Lógica dos formulários
+│   │   └── formsController.js
+│   ├── routes/                   # Rotas da API
+│   │   └── forms.js
+│   ├── uploads/                  # Arquivos enviados
+│   ├── .env                      # Variáveis de ambiente
+│   ├── server.js                 # Entrada principal do backend
+│   └── package.json              # Dependências do backend
+├── components/                   
+│   ├── ui/                       
 │   │   ├── accordion.tsx
 │   │   ├── button.tsx
 │   │   ├── card.tsx
@@ -93,24 +102,24 @@ ITAGEO-Site/
 │   │   ├── select.tsx
 │   │   ├── textarea.tsx
 │   │   └── ...
-│   ├── footer.tsx                # Rodapé do site
-│   ├── header.tsx                # Cabeçalho e navegação
-│   └── theme-provider.tsx        # Provedor de tema
-├── hooks/                        # Hooks customizados
-│   ├── use-mobile.ts             # Hook para detecção mobile
-│   └── use-toast.ts              # Hook para notificações
-├── lib/                          # Utilitários e configurações
-│   └── utils.ts                  # Funções utilitárias (cn, etc.)
-├── public/                       # Arquivos estáticos
-│   ├── images/                   # Imagens do projeto
+│   ├── footer.tsx
+│   ├── header.tsx
+│   └── theme-provider.tsx
+├── hooks/                        
+│   ├── use-mobile.ts
+│   └── use-toast.ts
+├── lib/                          
+│   └── utils.ts
+├── public/                       
+│   ├── images/
 │   └── favicon.ico
-├── scripts/                      # Scripts de automação
-├── .gitignore                    # Arquivos ignorados pelo Git
-├── next.config.mjs               # Configuração do Next.js
-├── package.json                  # Dependências e scripts
-├── README.md                     # Documentação do projeto
-├── tailwind.config.js            # Configuração do Tailwind CSS
-└── tsconfig.json                 # Configuração do TypeScript
+├── scripts/                      
+├── .gitignore
+├── next.config.mjs
+├── package.json                  # Dependências do frontend
+├── README.md
+├── tailwind.config.js
+└── tsconfig.json
 ```
 
 ## Funcionalidades
