@@ -649,10 +649,10 @@ Mensagem: ${formData.mensagem}
               <h3 className="text-xl font-bold text-emerald-900 mb-2">E-mail Direto</h3>
               <p className="text-emerald-700 mb-4">Envie sua mensagem diretamente</p>
               <a
-                href="mailto:contato@itageoambiental.com.br"
+                href="mailto:itagep@itageoambiental.com.br"
                 className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
               >
-                contato@itageoambiental.com.br
+                itageo@itageoambiental.com.br
               </a>
             </div>
 
