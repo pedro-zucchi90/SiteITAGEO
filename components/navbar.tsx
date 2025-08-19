@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, MessageCircle, Users, Shield, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -36,6 +36,18 @@ const contatoItems = [
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isContatoOpen, setIsContatoOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) { setIsMobileMenuOpen(false) }
+      if (isContatoOpen) { setIsContatoOpen(false) }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [isMobileMenuOpen, isContatoOpen])
 
   return (
     <nav className="fixed w-full top-0 z-[9999] bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-200">
