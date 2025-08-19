@@ -1,5 +1,11 @@
+'use client';
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+
+import { RevealSection } from "@/components/ui/reveal-section"
+import { RevealHero } from "@/components/ui/reveal-hero"
+import { motion } from "framer-motion"
 import {
   Users,
   Award,
@@ -110,14 +116,32 @@ export default function HomePage() {
   ]
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[url('/modern-eco-building.png')] bg-cover bg-center bg-no-repeat"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-green-500/50 to-transparent"></div>
-        </div>
+                 {/* Video Background */}
+         <div className="absolute inset-0 z-20" id="video-container">
+           <video
+             autoPlay
+             muted
+             loop
+             playsInline
+             className="absolute inset-0 w-full h-full object-cover"
+             onLoadedData={(e) => {
+               const fallback = document.getElementById('fallback-container');
+               if (fallback) fallback.style.opacity = '0';
+             }}
+           >
+             <source src="/video_bg.mp4" type="video/mp4" />
+           </video>
+           <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
+         </div>
+
+         {/* Fallback Background Pattern */}
+         <div className="absolute inset-0 z-10 opacity-20 transition-opacity duration-1000" id="fallback-container">
+           <div className="absolute inset-0 bg-[url('/modern-eco-building.png')] bg-cover bg-center bg-no-repeat"></div>
+           <div className="absolute inset-0 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+         </div>
 
         {/* Geometric Pattern Overlay */}
         <div className="absolute inset-0 opacity-10">
@@ -127,22 +151,24 @@ export default function HomePage() {
           </svg>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
+                 {/* Content */}
+         <div className="relative z-30 flex items-center justify-center min-h-screen px-4">
           <div className="max-w-4xl mx-auto text-center text-white">
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Sustentabilidade e
-              <br />
-              <span className="text-green-200">Inovação Ambiental</span>
-            </h1>
+            <RevealHero stagger={0.15}>
+              {/* Main Headline */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Sustentabilidade e
+                <br />
+                <span className="text-green-200">Inovação Ambiental</span>
+              </h1>
 
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-95">
-              Consultoria especializada em soluções ambientais sustentáveis,
-              <br />
-              comprometida com o futuro do nosso planeta.
-            </p>
+              {/* Subtitle */}
+              <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-95">
+                Consultoria especializada em soluções ambientais sustentáveis,
+                <br />
+                comprometida com o futuro do nosso planeta.
+              </p>
+            </RevealHero>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -164,7 +190,7 @@ export default function HomePage() {
             </div>
 
             {/* Statistics Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <RevealHero className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto" stagger={0.15}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
@@ -194,7 +220,7 @@ export default function HomePage() {
                   <div className="text-green-100 font-medium">Comprometimento Ambiental</div>
                 </div>
               </div>
-            </div>
+            </RevealHero>
           </div>
         </div>
       </section>
@@ -202,7 +228,7 @@ export default function HomePage() {
       {/* About Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-emerald-50 to-green-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <RevealSection className="text-center mb-16" stagger={0.2}>
             <h2 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6">Quem Somos</h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl text-emerald-800 leading-relaxed mb-6">
@@ -216,12 +242,12 @@ export default function HomePage() {
                 com uma abordagem prática e inovadora.
               </p>
             </div>
-          </div>
+          </RevealSection>
 
           {/* Values */}
           <div className="mb-20">
             <h3 className="text-3xl font-bold text-emerald-900 text-center mb-12">Nossos Valores</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <RevealSection className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" stagger={0.1}>
               {values.map((value, index) => {
                 const IconComponent = value.icon
                 return (
@@ -237,7 +263,7 @@ export default function HomePage() {
                   </div>
                 )
               })}
-            </div>
+            </RevealSection>
           </div>
         </div>
       </section>
@@ -247,7 +273,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-emerald-900 mb-12">Nosso Propósito</h2>
-            <div className="grid md:grid-cols-2 gap-12">
+            <RevealSection className="grid md:grid-cols-2 gap-12" stagger={0.3}>
               <div className="bg-emerald-50 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-emerald-800 mb-6">Missão</h3>
                 <p className="text-xl text-emerald-700 leading-relaxed">
@@ -262,13 +288,13 @@ export default function HomePage() {
                   sustentáveis no mercado brasileiro.
                 </p>
               </div>
-            </div>
+            </RevealSection>
           </div>
 
           {/* Pillars */}
           <div>
             <h3 className="text-3xl font-bold text-emerald-900 text-center mb-12">Nossos Pilares</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <RevealSection className="grid md:grid-cols-2 gap-8" stagger={0.2}>
               {pillars.map((pillar, index) => {
                 const IconComponent = pillar.icon
                 return (
@@ -285,7 +311,7 @@ export default function HomePage() {
                   </div>
                 )
               })}
-            </div>
+            </RevealSection>
           </div>
         </div>
       </section>
@@ -301,76 +327,71 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16 p-4 md:p-6">
             {services.map((service, index) => {
               const IconComponent = service.icon
               return (
-                <div
-                  key={index}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-emerald-100"
-                >
-                  {/* Enhanced header with gradient background */}
-                  <div className={`bg-gradient-to-br ${service.color} p-8 text-white relative overflow-hidden`}>
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <svg className="w-full h-full" viewBox="0 0 100 100">
-                        <circle cx="20" cy="20" r="2" fill="white" />
-                        <circle cx="80" cy="20" r="1.5" fill="white" />
-                        <circle cx="50" cy="80" r="1" fill="white" />
-                        <circle cx="10" cy="70" r="1.5" fill="white" />
-                        <circle cx="90" cy="60" r="1" fill="white" />
-                      </svg>
-                    </div>
-
-                    <div className="relative z-10">
-                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <RevealSection key={index} stagger={0.1}>
+                  <div className="group h-full">
+                    <div className={`bg-white rounded-2xl p-8 h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2 flex flex-col relative overflow-hidden my-2`}>
+                      {/* Icon */}
+                      <div
+                        className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl text-white mb-6 transform transition-transform duration-300 hover:scale-110 hover:rotate-3`}
+                      >
                         <IconComponent className="w-8 h-8" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                      <p className="text-white/90 leading-relaxed">{service.detailedDescription}</p>
+
+                      {/* Content */}
+                      <div className="flex-1 flex flex-col">
+                        <h3 className="text-2xl font-bold text-emerald-900 mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-emerald-600 font-medium mb-4">
+                          {service.detailedDescription}
+                        </p>
+                        <p className="text-emerald-700 text-sm leading-relaxed mb-6">
+                          {service.description}
+                        </p>
+
+                        {/* Features List */}
+                        <div className="flex-1">
+                          <ul className="space-y-3">
+                            {service.features.map((feature, featureIndex) => (
+                              <li
+                                key={featureIndex}
+                                className="flex items-center space-x-3 text-emerald-700 opacity-0 -translate-x-4 animate-[slideIn_0.4s_ease-out_forwards]"
+                                style={{ animationDelay: `${featureIndex * 0.1 + 0.2}s` }}
+                              >
+                                <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full`}></div>
+                                <span className="text-sm font-medium">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* CTA Button */}
+                        <div className="mt-8 transform transition-transform duration-200 hover:scale-[1.02]">
+                          <Button
+                            asChild
+                            className={`w-full bg-gradient-to-r ${service.color} text-white hover:shadow-lg transition-all duration-200`}
+                          >
+                            <Link href="/solucoes" className="flex items-center justify-center gap-2">
+                              Saiba Mais
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Enhanced content section */}
-                  <div className="p-8 space-y-6">
-                    <p className="text-emerald-700 text-lg leading-relaxed">{service.description}</p>
-
-                    {/* Enhanced features list with better styling */}
-                    <div>
-                      <h4 className="font-bold text-emerald-900 mb-4 text-lg">Principais serviços:</h4>
-                      <ul className="space-y-3">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center gap-3 text-emerald-700 group/item">
-                            <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
-                              <CheckCircle className="w-4 h-4 text-emerald-600" />
-                            </div>
-                            <span className="font-medium">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="pt-4 border-t border-emerald-100">
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-50 group-hover:border-emerald-300 transition-all bg-transparent"
-                      >
-                        <Link href="/solucoes" className="flex items-center justify-center gap-2">
-                          Saiba Mais
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+                </RevealSection>
               )
             })}
           </div>
 
           <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-12 shadow-2xl text-white mb-16">
             <h3 className="text-4xl font-bold text-center mb-16">Nosso Processo de Trabalho</h3>
-            <div className="grid md:grid-cols-4 gap-8">
+            <RevealSection className="grid md:grid-cols-4 gap-8" stagger={0.2}>
               {[
                 {
                   step: "01",
@@ -413,40 +434,39 @@ export default function HomePage() {
                   </div>
                 )
               })}
-            </div>
+            </RevealSection>
           </div>
 
           {/* CTA Section */}
           <section className="full-bleed overflow-x-hidden py-20 bg-emerald-600">
             <div className="max-w-4xl mx-auto text-center text-white px-4">
-              <h2 className="text-4xl font-bold mb-6">Pronto para Transformar seu Negócio?</h2>
-              <p className="text-xl mb-8 opacity-90">
-                Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar a excelência ambiental.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 rounded-full bg-transparent"
-                >
-                  <Link href="/contato">Fale Conosco</Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-full"
-                >
-                  <Link href="/cases">Ver Nossos Cases</Link>
-                </Button>
-              </div>
+              <RevealSection stagger={0.2}>
+                <h2 className="text-4xl font-bold mb-6">Pronto para Transformar seu Negócio?</h2>
+                <p className="text-xl mb-8 opacity-90">
+                  Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar a excelência ambiental.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 rounded-full bg-transparent"
+                  >
+                    <Link href="/contato">Fale Conosco</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-full"
+                  >
+                    <Link href="/cases">Ver Nossos Cases</Link>
+                  </Button>
+                </div>
+              </RevealSection>
             </div>
           </section>
-
-
-
         </div>
       </section>
-    </main>
+    </div>
   )
 }

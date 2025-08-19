@@ -2,8 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat, Open_Sans } from "next/font/google"
 import "./globals.css"
-import { Header } from "@/components/header"
+import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -46,9 +47,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className="font-sans">
-        <Header />
+        <Navbar />
         <main>{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   )
