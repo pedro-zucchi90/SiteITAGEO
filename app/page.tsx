@@ -179,7 +179,7 @@ export default function HomePage() {
           <div className="w-full max-w-4xl mx-auto text-center text-white">
             <RevealHero stagger={0.15}>
               {/* Main Headline */}
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="mt-8 sm:mt-0 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                 Sustentabilidade e
                 <br />
                 <span className="text-green-200">Inovação Ambiental</span>
@@ -213,7 +213,7 @@ export default function HomePage() {
             </div>
 
             {/* Statistics Cards */}
-            <RevealHero className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto" stagger={0.15}>
+            <RevealHero className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 sm:mb-0" stagger={0.15}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
                 <div className="text-center">
                   <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
@@ -244,6 +244,7 @@ export default function HomePage() {
                 </div>
               </div>
             </RevealHero>
+            <div className="block sm:hidden h-8" />
           </div>
         </div>
       </section>
