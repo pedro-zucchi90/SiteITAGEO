@@ -138,7 +138,7 @@ export default function HomePage() {
 
         {/* Créditos do vídeo */}
         <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
-          Vídeo de drone de Itá - SC por{" "}
+          Imagens aéreas de Itá - SC por{" "}
           <a
             href="https://www.youtube.com/@CAV07"
             target="_blank"
