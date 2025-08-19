@@ -38,7 +38,7 @@ export function Navbar() {
   const [isContatoOpen, setIsContatoOpen] = useState(false)
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-[999]">
+    <nav className="fixed w-full top-0 z-[9999] bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
