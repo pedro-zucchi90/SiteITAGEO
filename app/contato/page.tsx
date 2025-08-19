@@ -176,9 +176,9 @@ export default function ContatoPage() {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 pb-10 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-1 flex flex-col h-full">
+          <div className="lg:col-span-1 space-y-6 sm:space-y-8">
             {/* Contact Details */}
-            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm mb-6 sm:mb-8 flex-shrink-0">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm">
               <h2 className="text-xl sm:text-2xl font-bold text-emerald-900 mb-4 sm:mb-6">Informações de Contato</h2>
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start gap-3 sm:gap-4">
@@ -198,9 +198,7 @@ export default function ContatoPage() {
                   <div>
                     <h3 className="font-semibold text-emerald-900 mb-1">E-mail</h3>
                     <p className="text-emerald-700 text-sm sm:text-base">
-                      contato@itageoambiental.com.br
-                      <br />
-                      comercial@itageoambiental.com.br
+                      itageo@itageoambiental.com.br
                     </p>
                   </div>
                 </div>
@@ -238,9 +236,9 @@ export default function ContatoPage() {
             </div>
 
             {/* Google Maps Integration */}
-            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm flex-1 flex flex-col justify-end">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm">
               <h3 className="text-lg sm:text-xl font-bold text-emerald-900 mb-2 sm:mb-4">Nossa Localização</h3>
-              <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
+              <div className="aspect-square rounded-xl overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14184.73326445581!2d-52.34916401284183!3d-27.276131799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e49fde250a3ef7%3A0xa26834a7c937f19f!2sItageo%20Ambiental!5e0!3m2!1spt-BR!2sbr!4v1755640138225!5m2!1spt-BR!2sbr"
                   width="100%"
@@ -261,7 +259,7 @@ export default function ContatoPage() {
 
           {/* Contact Forms */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm h-full flex flex-col">
+            <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm">
               {/* Form Type Selector */}
               <div className="mb-6 sm:mb-8">
                 <h2 className="text-xl sm:text-2xl font-bold text-emerald-900 mb-4 sm:mb-6">Como Podemos Ajudar?</h2>
@@ -304,277 +302,275 @@ export default function ContatoPage() {
               )}
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 flex-1 flex flex-col" encType="multipart/form-data">
-                <div className="flex-1 flex flex-col">
-                  {activeForm === "ouvidoria" ? (
-                    <>
-                      <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
-                        <h4 className="font-bold text-blue-900 mb-1 sm:mb-2 text-sm sm:text-base">Formulário de Denúncia</h4>
-                        <p className="text-blue-800 text-xs sm:text-sm mb-1 sm:mb-2">
-                          Apenas os campos "Local" e "Relato" são de preenchimento obrigatório.
-                        </p>
-                        <p className="text-blue-700 text-xs sm:text-sm">
-                          Este formulário não coleta automaticamente nenhuma informação pessoal, como nome ou e-mail. Seus
-                          dados somente serão registrados se você optar por fornecê-los.
-                        </p>
-                      </div>
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" encType="multipart/form-data">
+                {activeForm === "ouvidoria" ? (
+                  <>
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+                      <h4 className="font-bold text-blue-900 mb-1 sm:mb-2 text-sm sm:text-base">Formulário de Denúncia</h4>
+                      <p className="text-blue-800 text-xs sm:text-sm mb-1 sm:mb-2">
+                        Apenas os campos "Local" e "Relato" são de preenchimento obrigatório.
+                      </p>
+                      <p className="text-blue-700 text-xs sm:text-sm">
+                        Este formulário não coleta automaticamente nenhuma informação pessoal, como nome ou e-mail. Seus
+                        dados somente serão registrados se você optar por fornecê-los.
+                      </p>
+                    </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <div>
-                          <label htmlFor="nome" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            Nome (opcional)
-                          </label>
-                          <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            value={formData.nome}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="Seu nome (opcional)"
-                          />
-                        </div>
-
-                        <div>
-                          <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            E-mail (opcional)
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="seu@email.com (opcional)"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <div>
-                          <label htmlFor="telefone" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            Telefone (opcional)
-                          </label>
-                          <input
-                            type="tel"
-                            id="telefone"
-                            name="telefone"
-                            value={formData.telefone}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="(49) 99999-9999 (opcional)"
-                          />
-                        </div>
-
-                        <div>
-                          <label
-                            htmlFor="dataAcontecimento"
-                            className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2"
-                          >
-                            Data do acontecimento (opcional)
-                          </label>
-                          <input
-                            type="date"
-                            id="dataAcontecimento"
-                            name="dataAcontecimento"
-                            value={formData.dataAcontecimento}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                          />
-                        </div>
-                      </div>
-
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
-                        <label htmlFor="localAcontecimento" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                          Local do acontecimento *
+                        <label htmlFor="nome" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          Nome (opcional)
                         </label>
                         <input
                           type="text"
-                          id="localAcontecimento"
-                          name="localAcontecimento"
-                          value={formData.localAcontecimento}
+                          id="nome"
+                          name="nome"
+                          value={formData.nome}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                          placeholder="Seu nome (opcional)"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          E-mail (opcional)
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                          placeholder="seu@email.com (opcional)"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <label htmlFor="telefone" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          Telefone (opcional)
+                        </label>
+                        <input
+                          type="tel"
+                          id="telefone"
+                          name="telefone"
+                          value={formData.telefone}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                          placeholder="(49) 99999-9999 (opcional)"
+                        />
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="dataAcontecimento"
+                          className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2"
+                        >
+                          Data do acontecimento (opcional)
+                        </label>
+                        <input
+                          type="date"
+                          id="dataAcontecimento"
+                          name="dataAcontecimento"
+                          value={formData.dataAcontecimento}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="localAcontecimento" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                        Local do acontecimento *
+                      </label>
+                      <input
+                        type="text"
+                        id="localAcontecimento"
+                        name="localAcontecimento"
+                        value={formData.localAcontecimento}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                        placeholder="Descreva o local onde ocorreu o fato"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="relato" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                        Relato *
+                      </label>
+                      <textarea
+                        id="relato"
+                        name="relato"
+                        value={formData.relato}
+                        onChange={handleInputChange}
+                        required
+                        rows={5}
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors resize-none text-sm"
+                        placeholder="Descreva detalhadamente o que aconteceu..."
+                      />
+                    </div>
+
+                    {/* Upload de arquivo para ouvidoria */}
+                    <div>
+                      <label htmlFor="arquivo" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                        Anexar Arquivo (opcional)
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id="arquivo"
+                          name="arquivo"
+                          onChange={handleFileChange}
+                          accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor="arquivo"
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-dashed border-emerald-300 rounded-xl hover:border-emerald-500 transition-colors cursor-pointer flex items-center justify-center gap-2 text-emerald-700 text-xs sm:text-sm"
+                        >
+                          <Upload className="w-5 h-5" />
+                          {formData.arquivo
+                            ? formData.arquivo.name
+                            : "Clique para anexar arquivo"}
+                        </label>
+                      </div>
+                      <p className="text-emerald-600 text-xs sm:text-sm mt-1 sm:mt-2">
+                        Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB)
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <label htmlFor="nome" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          Nome Completo *
+                        </label>
+                        <input
+                          type="text"
+                          id="nome"
+                          name="nome"
+                          value={formData.nome}
                           onChange={handleInputChange}
                           required
                           className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                          placeholder="Descreva o local onde ocorreu o fato"
+                          placeholder="Seu nome completo"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="relato" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                          Relato *
+                        <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          E-mail *
                         </label>
-                        <textarea
-                          id="relato"
-                          name="relato"
-                          value={formData.relato}
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
                           onChange={handleInputChange}
                           required
-                          rows={5}
-                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors resize-none text-sm"
-                          placeholder="Descreva detalhadamente o que aconteceu..."
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                          placeholder="seu@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <label htmlFor="telefone" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          Telefone *
+                        </label>
+                        <input
+                          type="tel"
+                          id="telefone"
+                          name="telefone"
+                          value={formData.telefone}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
+                          placeholder="(49) 99999-9999"
                         />
                       </div>
 
-                      {/* Upload de arquivo para ouvidoria */}
                       <div>
-                        <label htmlFor="arquivo" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                          Anexar Arquivo (opcional)
+                        <label htmlFor="empresa" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                          Empresa {activeForm === "trabalhe-conosco" ? "" : "(opcional)"}
                         </label>
-                        <div className="relative">
-                          <input
-                            type="file"
-                            id="arquivo"
-                            name="arquivo"
-                            onChange={handleFileChange}
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                            className="hidden"
-                          />
-                          <label
-                            htmlFor="arquivo"
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-dashed border-emerald-300 rounded-xl hover:border-emerald-500 transition-colors cursor-pointer flex items-center justify-center gap-2 text-emerald-700 text-xs sm:text-sm"
-                          >
-                            <Upload className="w-5 h-5" />
-                            {formData.arquivo
-                              ? formData.arquivo.name
-                              : "Clique para anexar arquivo"}
-                          </label>
-                        </div>
-                        <p className="text-emerald-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                          Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB)
-                        </p>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <div>
-                          <label htmlFor="nome" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            Nome Completo *
-                          </label>
-                          <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            value={formData.nome}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="Seu nome completo"
-                          />
-                        </div>
-
-                        <div>
-                          <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            E-mail *
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="seu@email.com"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <div>
-                          <label htmlFor="telefone" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            Telefone *
-                          </label>
-                          <input
-                            type="tel"
-                            id="telefone"
-                            name="telefone"
-                            value={formData.telefone}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder="(49) 99999-9999"
-                          />
-                        </div>
-
-                        <div>
-                          <label htmlFor="empresa" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                            Empresa {activeForm === "trabalhe-conosco" ? "" : "(opcional)"}
-                          </label>
-                          <input
-                            type="text"
-                            id="empresa"
-                            name="empresa"
-                            value={formData.empresa}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
-                            placeholder={
-                              activeForm === "trabalhe-conosco" ? "Empresa atual (opcional)" : "Nome da sua empresa"
-                            }
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label htmlFor="mensagem" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                          {activeForm === "trabalhe-conosco" ? "Apresentação *" : "Mensagem *"}
-                        </label>
-                        <textarea
-                          id="mensagem"
-                          name="mensagem"
-                          value={formData.mensagem}
+                        <input
+                          type="text"
+                          id="empresa"
+                          name="empresa"
+                          value={formData.empresa}
                           onChange={handleInputChange}
-                          required
-                          rows={5}
-                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors resize-none text-sm"
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors text-sm"
                           placeholder={
-                            activeForm === "trabalhe-conosco"
-                              ? "Conte-nos sobre sua experiência, formação e por que gostaria de trabalhar conosco..."
-                              : "Descreva como podemos ajudar você..."
+                            activeForm === "trabalhe-conosco" ? "Empresa atual (opcional)" : "Nome da sua empresa"
                           }
                         />
                       </div>
+                    </div>
 
-                      {/* File Upload para todos os formulários */}
-                      <div>
-                        <label htmlFor="arquivo" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
-                          {activeForm === "trabalhe-conosco" ? "Currículo *" : "Anexar Arquivo (opcional)"}
+                    <div>
+                      <label htmlFor="mensagem" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                        {activeForm === "trabalhe-conosco" ? "Apresentação *" : "Mensagem *"}
+                      </label>
+                      <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        value={formData.mensagem}
+                        onChange={handleInputChange}
+                        required
+                        rows={5}
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors resize-none text-sm"
+                        placeholder={
+                          activeForm === "trabalhe-conosco"
+                            ? "Conte-nos sobre sua experiência, formação e por que gostaria de trabalhar conosco..."
+                            : "Descreva como podemos ajudar você..."
+                        }
+                      />
+                    </div>
+
+                    {/* File Upload para todos os formulários */}
+                    <div>
+                      <label htmlFor="arquivo" className="block text-xs sm:text-sm font-semibold text-emerald-900 mb-1 sm:mb-2">
+                        {activeForm === "trabalhe-conosco" ? "Currículo *" : "Anexar Arquivo (opcional)"}
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          id="arquivo"
+                          name="arquivo"
+                          onChange={handleFileChange}
+                          accept={
+                            activeForm === "trabalhe-conosco" ? ".pdf,.doc,.docx" : ".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                          }
+                          required={activeForm === "trabalhe-conosco"}
+                          className="hidden"
+                        />
+                        <label
+                          htmlFor="arquivo"
+                          className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-dashed border-emerald-300 rounded-xl hover:border-emerald-500 transition-colors cursor-pointer flex items-center justify-center gap-2 text-emerald-700 text-xs sm:text-sm"
+                        >
+                          <Upload className="w-5 h-5" />
+                          {formData.arquivo
+                            ? formData.arquivo.name
+                            : activeForm === "trabalhe-conosco"
+                              ? "Clique para anexar seu currículo"
+                              : "Clique para anexar arquivo"}
                         </label>
-                        <div className="relative">
-                          <input
-                            type="file"
-                            id="arquivo"
-                            name="arquivo"
-                            onChange={handleFileChange}
-                            accept={
-                              activeForm === "trabalhe-conosco" ? ".pdf,.doc,.docx" : ".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                            }
-                            required={activeForm === "trabalhe-conosco"}
-                            className="hidden"
-                          />
-                          <label
-                            htmlFor="arquivo"
-                            className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-dashed border-emerald-300 rounded-xl hover:border-emerald-500 transition-colors cursor-pointer flex items-center justify-center gap-2 text-emerald-700 text-xs sm:text-sm"
-                          >
-                            <Upload className="w-5 h-5" />
-                            {formData.arquivo
-                              ? formData.arquivo.name
-                              : activeForm === "trabalhe-conosco"
-                                ? "Clique para anexar seu currículo"
-                                : "Clique para anexar arquivo"}
-                          </label>
-                        </div>
-                        <p className="text-emerald-600 text-xs sm:text-sm mt-1 sm:mt-2">
-                          {activeForm === "trabalhe-conosco"
-                            ? "Formatos aceitos: PDF, DOC, DOCX (máx. 10MB)"
-                            : "Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB)"}
-                        </p>
                       </div>
-                    </>
-                  )}
-                </div>
+                      <p className="text-emerald-600 text-xs sm:text-sm mt-1 sm:mt-2">
+                        {activeForm === "trabalhe-conosco"
+                          ? "Formatos aceitos: PDF, DOC, DOCX (máx. 10MB)"
+                          : "Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB)"}
+                      </p>
+                    </div>
+                  </>
+                )}
 
                 {/* Submit Status */}
                 {submitStatus === "success" && (
@@ -655,7 +651,7 @@ export default function ContatoPage() {
               <h3 className="text-lg sm:text-xl font-bold text-emerald-900 mb-1 sm:mb-2">E-mail Direto</h3>
               <p className="text-emerald-700 mb-2 sm:mb-4 text-sm sm:text-base">Envie sua mensagem diretamente</p>
               <a
-                href="mailto:itagep@itageoambiental.com.br"
+                href="mailto:itageo@itageoambiental.com.br"
                 className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors text-sm sm:text-base"
               >
                 itageo@itageoambiental.com.br
