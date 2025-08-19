@@ -80,9 +80,10 @@ export default function LocalizacaoPage() {
 
             <div className="bg-white rounded-2xl p-8 shadow-sm">
               <h3 className="text-xl font-bold text-emerald-900 mb-4">Nossa Localização</h3>
-              <div className="aspect-square rounded-xl overflow-hidden">
+
+              <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-video">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3542.123456789!2d-52.40123456789!3d-27.28123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e2c8f123456789%3A0x123456789abcdef!2sAv.%20Tancredo%20Neves%2C%20294%20-%20Pioneiros%2C%20It%C3%A1%20-%20SC%2C%2089760-000%2C%20Brazil!5e0!3m2!1sen!2sbr!4v1703123456789!5m2!1sen!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14184.73326445581!2d-52.34916401284183!3d-27.276131799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e49fde250a3ef7%3A0xa26834a7c937f19f!2sItageo%20Ambiental!5e0!3m2!1spt-BR!2sbr!4v1755640138225!5m2!1spt-BR!2sbr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -92,9 +93,12 @@ export default function LocalizacaoPage() {
                   title="Localização ITÁGEO Ambiental - Av. Tancredo Neves, 294, Itá/SC"
                 />
               </div>
-              <div className="mt-4 text-center">
-                <p className="text-emerald-700 font-semibold">ITÁGEO Ambiental</p>
-                <p className="text-emerald-600 text-sm">Av. Tancredo Neves, 294 - Itá/SC</p>
+
+              <div className="mt-6 text-center">
+                <p className="text-emerald-700 font-semibold text-lg">ITÁGEO Ambiental</p>
+                <p className="text-emerald-600 text-sm">
+                  Av. Tancredo Neves, 294 - Pioneiros, Itá/SC
+                </p>
               </div>
             </div>
           </div>
