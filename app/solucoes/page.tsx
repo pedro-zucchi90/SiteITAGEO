@@ -299,7 +299,7 @@ export default function SolucoesPage() {
               <div className="text-emerald-800 font-semibold">Projetos Realizados</div>
             </div>
             <div className="p-6">
-              <div className="text-4xl font-bold text-emerald-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-emerald-600 mb-2">5+</div>
               <div className="text-emerald-800 font-semibold">Anos de Experiência</div>
             </div>
             <div className="p-6">
