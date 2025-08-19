@@ -1,11 +1,10 @@
 'use client';
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-import { RevealSection } from "@/components/ui/reveal-section"
-import { RevealHero } from "@/components/ui/reveal-hero"
-import { motion } from "framer-motion"
+import { RevealSection } from "@/components/ui/reveal-section";
+import { RevealHero } from "@/components/ui/reveal-hero";
 import {
   Users,
   Award,
@@ -23,7 +22,7 @@ import {
   BarChart3,
   Recycle,
   TrendingUp,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function HomePage() {
   const values = [
@@ -47,7 +46,7 @@ export default function HomePage() {
       title: "Colaboração",
       description: "Trabalhamos em parceria com nossos clientes para alcançar os melhores resultados.",
     },
-  ]
+  ];
 
   const pillars = [
     {
@@ -63,14 +62,14 @@ export default function HomePage() {
     {
       icon: Heart,
       title: "Compromisso",
-      description: "Dedicamos-nos integralmente ao sucesso de cada projeto e à satisfação de nossos clientes.",
+      description: "Dedicamo-nos integralmente ao sucesso de cada projeto e à satisfação de nossos clientes.",
     },
     {
       icon: Target,
       title: "Excelência",
-      description: "Buscamos constantemente superar expectativas através da qualidade e inovação.",
+      description: "Buscamos constantemente superar expectativas por meio da qualidade e inovação.",
     },
-  ]
+  ];
 
   const services = [
     {
@@ -113,46 +112,70 @@ export default function HomePage() {
       color: "from-orange-500 to-orange-600",
       features: ["Coleta de amostras", "Análises laboratoriais", "Relatórios técnicos"],
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
-                 {/* Video Background */}
-         <div className="absolute inset-0 z-20" id="video-container">
-           <video
-             autoPlay
-             muted
-             loop
-             playsInline
-             className="absolute inset-0 w-full h-full object-cover"
-             onLoadedData={(e) => {
-               const fallback = document.getElementById('fallback-container');
-               if (fallback) fallback.style.opacity = '0';
-             }}
-           >
-             <source src="/video_bg.mp4" type="video/mp4" />
-           </video>
-           <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
-         </div>
+        <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
+          {/* Video Background */}
+          <div className="absolute inset-0 z-20" id="video-container">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoadedData={(e) => {
+                const fallback = document.getElementById("fallback-container");
+                if (fallback) fallback.style.opacity = "0";
+              }}
+            >
+              <source src="/video_bg.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
+          </div>
 
-         {/* Fallback Background Pattern */}
-         <div className="absolute inset-0 z-10 opacity-20 transition-opacity duration-1000" id="fallback-container">
-           <div className="absolute inset-0 bg-[url('/modern-eco-building.png')] bg-cover bg-center bg-no-repeat"></div>
-           <div className="absolute inset-0 bg-gradient-to-r from-green-500/50 to-transparent"></div>
-         </div>
+          {/* Créditos do vídeo */}
+          <div className="absolute bottom-2 right-4 z-40 text-white/80 text-xs md:text-sm">
+            Vídeo de drone de Itá - SC por{" "}
+            <a
+              href="https://www.youtube.com/@CAV07"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-green-200"
+            >
+              CAV07
+            </a>
+          </div>
 
-        {/* Geometric Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
-            <path d="M0 400L300 200L600 400L900 100L1200 300V800H0V400Z" fill="white" fillOpacity="0.1" />
-            <path d="M0 600L400 300L800 500L1200 200V800H0V600Z" fill="white" fillOpacity="0.05" />
-          </svg>
-        </div>
+          {/* Fallback Background Pattern */}
+          <div
+            className="absolute inset-0 z-10 opacity-20 transition-opacity duration-1000"
+            id="fallback-container"
+          >
+            <div className="absolute inset-0 bg-[url('/modern-eco-building.png')] bg-cover bg-center bg-no-repeat"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-500/50 to-transparent"></div>
+          </div>
 
-                 {/* Content */}
-         <div className="relative z-30 flex items-center justify-center min-h-screen px-4">
+          {/* Geometric Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
+              <path
+                d="M0 400L300 200L600 400L900 100L1200 300V800H0V400Z"
+                fill="white"
+                fillOpacity="0.1"
+              />
+              <path
+                d="M0 600L400 300L800 500L1200 200V800H0V600Z"
+                fill="white"
+                fillOpacity="0.05"
+              />
+            </svg>
+          </div>
+
+        {/* Content */}
+        <div className="relative z-30 flex items-center justify-center min-h-screen px-4">
           <div className="max-w-4xl mx-auto text-center text-white">
             <RevealHero stagger={0.15}>
               {/* Main Headline */}
@@ -249,7 +272,7 @@ export default function HomePage() {
             <h3 className="text-3xl font-bold text-emerald-900 text-center mb-12">Nossos Valores</h3>
             <RevealSection className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" stagger={0.1}>
               {values.map((value, index) => {
-                const IconComponent = value.icon
+                const IconComponent = value.icon;
                 return (
                   <div
                     key={index}
@@ -261,7 +284,7 @@ export default function HomePage() {
                     <h4 className="text-xl font-bold text-emerald-900 mb-3">{value.title}</h4>
                     <p className="text-emerald-700 leading-relaxed">{value.description}</p>
                   </div>
-                )
+                );
               })}
             </RevealSection>
           </div>
@@ -296,7 +319,7 @@ export default function HomePage() {
             <h3 className="text-3xl font-bold text-emerald-900 text-center mb-12">Nossos Pilares</h3>
             <RevealSection className="grid md:grid-cols-2 gap-8" stagger={0.2}>
               {pillars.map((pillar, index) => {
-                const IconComponent = pillar.icon
+                const IconComponent = pillar.icon;
                 return (
                   <div key={index} className="bg-emerald-50 rounded-2xl p-8 hover:shadow-md transition-shadow">
                     <div className="flex items-start gap-6">
@@ -309,7 +332,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                )
+                );
               })}
             </RevealSection>
           </div>
@@ -329,7 +352,7 @@ export default function HomePage() {
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16 p-4 md:p-6">
             {services.map((service, index) => {
-              const IconComponent = service.icon
+              const IconComponent = service.icon;
               return (
                 <RevealSection key={index} stagger={0.1}>
                   <div className="group h-full">
@@ -385,7 +408,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </RevealSection>
-              )
+              );
             })}
           </div>
 
@@ -418,7 +441,7 @@ export default function HomePage() {
                   icon: TrendingUp,
                 },
               ].map((process, index) => {
-                const ProcessIcon = process.icon
+                const ProcessIcon = process.icon;
                 return (
                   <div key={index} className="text-center group">
                     <div className="relative mb-6">
@@ -432,7 +455,7 @@ export default function HomePage() {
                     <h4 className="text-xl font-bold mb-4">{process.title}</h4>
                     <p className="text-emerald-100 leading-relaxed">{process.description}</p>
                   </div>
-                )
+                );
               })}
             </RevealSection>
           </div>
@@ -468,5 +491,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
