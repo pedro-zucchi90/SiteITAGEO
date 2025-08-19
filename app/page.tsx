@@ -438,7 +438,7 @@ export default function HomePage() {
           </div>
 
           {/* CTA Section */}
-          <section className="full-bleed overflow-x-hidden py-20 bg-emerald-600">
+          <section className="full-bleed overflow-x-hidden py-20 bg-emerald-600 -mb-24">
             <div className="max-w-4xl mx-auto text-center text-white px-4">
               <RevealSection stagger={0.2}>
                 <h2 className="text-4xl font-bold mb-6">Pronto para Transformar seu Negócio?</h2>

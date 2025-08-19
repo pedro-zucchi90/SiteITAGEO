@@ -137,7 +137,7 @@ export function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">© 2024 ITÁGEO Ambiental. Todos os direitos reservados.</p>
+            <p className="text-sm text-gray-400">© {new Date().getFullYear()} ITÁGEO Ambiental. Todos os direitos reservados.</p>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 text-emerald-400">
                 <Award className="h-4 w-4" />
