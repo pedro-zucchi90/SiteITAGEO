@@ -120,7 +120,7 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       {/* Hero Section */}
         <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
-          {/* Video Background */}
+          {/* Video Background Hero */}
           <div className="absolute inset-0 z-20" id="video-container">
             <video
               autoPlay
