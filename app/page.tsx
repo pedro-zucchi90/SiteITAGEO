@@ -119,24 +119,38 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-20" id="video-container">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            onLoadedData={(e) => {
-              const fallback = document.getElementById("fallback-container");
-              if (fallback) fallback.style.opacity = "0";
-            }}
-          >
-            <source src="/bg_video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
-        </div>
+        <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
+          {/* Video Background */}
+          <div className="absolute inset-0 z-20" id="video-container">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoadedData={(e) => {
+                const fallback = document.getElementById("fallback-container");
+                if (fallback) fallback.style.opacity = "0";
+              }}
+            >
+              <source src="/bg_video.webm" type="video/webm" />
+              <source src="/bg_video.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
+          </div>
+
+          {/* Créditos do vídeo */}
+          <div className="absolute bottom-2 right-4 z-40 text-white/80 text-xs md:text-sm">
+            Vídeo de drone de Itá - SC por{" "}
+            <a
+              href="https://www.youtube.com/@CAV07"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-green-200"
+            >
+              CAV07
+            </a>
+          </div>
 
         {/* Créditos do vídeo */}
         <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
