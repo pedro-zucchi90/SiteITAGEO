@@ -95,19 +95,20 @@ export function Chatbot() {
         variant="default"
         size="icon"
         className={`
-          fixed right-6 bg-emerald-600 hover:bg-emerald-700 rounded-full shadow-lg z-50 w-16 h-16 flex items-center justify-center border-4 border-white
+          fixed right-6 bg-emerald-600 hover:bg-emerald-700 rounded-full shadow-lg z-50
+          w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border-4 border-white
           ${chatbotTransition}
         `}
         style={{
-          minWidth: 64,
-          minHeight: 64,
+          minWidth: 48,
+          minHeight: 48,
           boxShadow: "0 4px 24px 0 rgba(0,0,0,0.18)",
           bottom: chatbotBottom,
         }}
         onClick={() => setOpen(true)}
         aria-label="Abrir Chatbot"
       >
-        <MessageCircle className="h-8 w-8" />
+        <MessageCircle className="h-6 w-6 md:h-7 md:w-7" />
       </Button>
     )
 
