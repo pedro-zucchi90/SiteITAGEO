@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, Users, Target, Briefcase, MapPin } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function SobrePage() {
   const sections = [
@@ -85,7 +86,7 @@ export default function SobrePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
-              <div className="text-4xl font-bold text-emerald-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-emerald-600 mb-2">5+</div>
               <div className="text-emerald-800 font-semibold">Anos de Experiência</div>
             </div>
             <div className="p-6">

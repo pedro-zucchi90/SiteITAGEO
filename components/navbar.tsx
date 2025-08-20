@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, MessageCircle, Users, Shield, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -36,6 +36,18 @@ const contatoItems = [
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isContatoOpen, setIsContatoOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) { setIsMobileMenuOpen(false) }
+      if (isContatoOpen) { setIsContatoOpen(false) }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [isMobileMenuOpen, isContatoOpen])
 
   return (
     <nav className="fixed w-full top-0 z-[9999] bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-200">
@@ -123,7 +135,7 @@ export function Navbar() {
           className={`
             lg:hidden border-t border-gray-100
             transition-all duration-300 ease-in-out
-            ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+            ${isMobileMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
           `}
         >
           <div className="py-4 space-y-4">
@@ -154,25 +166,33 @@ export function Navbar() {
 
               <div
                 className={`
-                  space-y-2 pl-4
+                  space-y-2 pl-2 pr-2
                   transition-all duration-200 ease-in-out
-                  ${isContatoOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+                  ${isContatoOpen ? "max-h-[60vh] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
                 `}
+                style={{
+                  maxHeight: isContatoOpen ? "60vh" : "0",
+                  overflowY: isContatoOpen ? "auto" : "hidden",
+                }}
               >
                 {contatoItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     className="flex items-start space-x-3 p-2 hover:bg-emerald-50 rounded-md"
+                    style={{
+                      wordBreak: "break-word",
+                      whiteSpace: "normal",
+                    }}
                     onClick={() => {
                       setIsContatoOpen(false)
                       setIsMobileMenuOpen(false)
                     }}
                   >
                     {item.icon}
-                    <div>
-                      <div className="font-medium">{item.label}</div>
-                      <p className="text-sm text-gray-500">{item.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-base">{item.label}</div>
+                      <p className="text-xs text-gray-500 leading-tight break-words">{item.description}</p>
                     </div>
                   </Link>
                 ))}

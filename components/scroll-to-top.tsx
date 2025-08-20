@@ -36,13 +36,15 @@ export function ScrollToTop() {
       size="icon"
       className={`
         fixed bottom-6 right-6 bg-emerald-600 hover:bg-emerald-700 rounded-full shadow-lg z-50
+        w-12 h-12 md:w-14 md:h-14 flex items-center justify-center
         transition-all duration-300 ease-in-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
       `}
+      style={{ minWidth: 48, minHeight: 48 }}
       onClick={scrollToTop}
       aria-label="Voltar ao topo"
     >
-      <ChevronUp className="h-6 w-6" />
+      <ChevronUp className="h-6 w-6 md:h-7 md:w-7" />
     </Button>
   )
 }

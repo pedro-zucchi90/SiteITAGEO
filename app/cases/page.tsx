@@ -1,4 +1,5 @@
 import { Calendar, MapPin, Users, Award, ArrowRight, CheckCircle } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function CasesPage() {
   const categories = [

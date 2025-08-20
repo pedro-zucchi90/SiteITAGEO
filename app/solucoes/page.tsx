@@ -1,120 +1,121 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle, FileCheck, Users, Briefcase, Zap, Shield, Phone } from "lucide-react"
+import { ArrowRight, CheckCircle, FileCheck, Briefcase, Phone, Map, LandPlot, Mountain } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function SolucoesPage() {
   const solutions = [
     {
-      id: "licenciamento",
-      icon: FileCheck,
-      title: "Licenciamento Ambiental",
-      subtitle: "Assessoria completa para obtenção de licenças",
+      id: "engenharia-consultoria",
+      icon: Briefcase,
+      title: "Engenharia e Consultoria",
+      subtitle: "Soluções integradas em engenharia e consultoria técnica",
       description:
-        "Oferecemos suporte integral para todos os tipos de licenciamento ambiental, desde a análise de viabilidade até a obtenção das licenças necessárias.",
+        "Oferecemos serviços completos de engenharia e consultoria, com foco em inovação, eficiência e sustentabilidade para projetos de diversos setores.",
       benefits: [
-        "Análise de viabilidade ambiental",
-        "Elaboração de documentação técnica",
-        "Acompanhamento junto aos órgãos competentes",
-        "Renovação e alteração de licenças",
-        "Consultoria em compliance ambiental",
+        "Projetos de engenharia civil e ambiental",
+        "Consultoria técnica especializada",
+        "Gestão de projetos multidisciplinares",
+        "Acompanhamento e fiscalização de obras",
+        "Soluções personalizadas para cada cliente",
       ],
       process: [
-        "Diagnóstico inicial do empreendimento",
-        "Elaboração dos estudos necessários",
-        "Protocolo junto aos órgãos ambientais",
-        "Acompanhamento do processo",
-        "Obtenção da licença",
+        "Diagnóstico das necessidades do cliente",
+        "Desenvolvimento de projetos e soluções",
+        "Aprovação e regularização junto aos órgãos competentes",
+        "Execução e acompanhamento técnico",
+        "Entrega e suporte pós-projeto",
       ],
       color: "emerald",
     },
     {
-      id: "consultoria",
-      icon: Users,
-      title: "Consultoria e Assessoria",
-      subtitle: "Orientação especializada em questões ambientais",
+      id: "licenciamento-monitoramento-consultoria",
+      icon: FileCheck,
+      title: "Licenciamento, Monitoramento e Consultoria Ambiental",
+      subtitle: "Gestão ambiental completa para seu empreendimento",
       description:
-        "Prestamos consultoria técnica especializada para empresas que buscam excelência em gestão ambiental e conformidade regulatória.",
+        "Atuamos em todas as etapas do licenciamento ambiental, monitoramento e consultoria, garantindo conformidade legal e sustentabilidade para seu negócio.",
       benefits: [
-        "Diagnóstico ambiental empresarial",
-        "Desenvolvimento de políticas ambientais",
-        "Treinamento de equipes",
-        "Auditoria ambiental",
-        "Planos de adequação ambiental",
+        "Licenciamento ambiental (LP, LI, LO)",
+        "Monitoramento de qualidade ambiental (ar, água, solo)",
+        "Elaboração de estudos e relatórios ambientais",
+        "Consultoria em compliance ambiental",
+        "Gestão de condicionantes e obrigações legais",
       ],
       process: [
-        "Avaliação das necessidades do cliente",
-        "Desenvolvimento de estratégias personalizadas",
-        "Implementação das soluções",
-        "Monitoramento e acompanhamento",
-        "Relatórios de resultados",
+        "Análise de viabilidade ambiental",
+        "Elaboração e protocolo de documentos",
+        "Acompanhamento de processos junto aos órgãos",
+        "Execução de monitoramentos ambientais",
+        "Relatórios e recomendações técnicas",
       ],
       color: "green",
     },
     {
-      id: "estudos",
-      icon: Briefcase,
-      title: "Estudos Ambientais",
-      subtitle: "EIA/RIMA e relatórios técnicos especializados",
+      id: "gestao-regularizacao-fundiaria",
+      icon: LandPlot,
+      title: "Gestão e Regularização Fundiária",
+      subtitle: "Soluções para regularização e gestão de propriedades",
       description:
-        "Elaboramos estudos ambientais completos e detalhados, atendendo às exigências dos órgãos ambientais e às necessidades específicas de cada projeto.",
+        "Apoiamos empresas e proprietários na regularização fundiária, gestão de imóveis rurais e urbanos, e resolução de conflitos de posse.",
       benefits: [
-        "Estudos de Impacto Ambiental (EIA)",
-        "Relatórios de Impacto Ambiental (RIMA)",
-        "Planos de Controle Ambiental (PCA)",
-        "Relatórios de Controle Ambiental (RCA)",
-        "Estudos de viabilidade ambiental",
+        "Regularização de imóveis rurais e urbanos",
+        "Georreferenciamento de propriedades",
+        "Apoio em processos de usucapião",
+        "Gestão documental e cartorial",
+        "Consultoria em legislação fundiária",
       ],
       process: [
-        "Levantamento de dados primários",
-        "Análise dos impactos ambientais",
-        "Proposição de medidas mitigadoras",
-        "Elaboração do relatório técnico",
-        "Apresentação aos órgãos competentes",
+        "Levantamento documental e diagnóstico",
+        "Georreferenciamento e mapeamento",
+        "Elaboração de peças técnicas e memoriais",
+        "Protocolo e acompanhamento em cartórios e órgãos",
+        "Finalização e entrega da regularização",
       ],
       color: "teal",
     },
     {
-      id: "residuos",
-      icon: Zap,
-      title: "Gestão de Resíduos",
-      subtitle: "Planos de gerenciamento e otimização",
+      id: "topografia-geoprocessamento",
+      icon: Map,
+      title: "Topografia e Geoprocessamento",
+      subtitle: "Mapeamento preciso e análise espacial",
       description:
-        "Desenvolvemos soluções completas para gestão de resíduos, desde o diagnóstico até a implementação de sistemas eficientes de gerenciamento.",
+        "Realizamos levantamentos topográficos, geodésicos e serviços de geoprocessamento para apoiar projetos de engenharia, meio ambiente e gestão territorial.",
       benefits: [
-        "Planos de Gerenciamento de Resíduos Sólidos",
-        "Classificação e caracterização de resíduos",
-        "Destinação ambientalmente adequada",
-        "Otimização de processos",
-        "Redução de custos operacionais",
+        "Levantamentos topográficos e planialtimétricos",
+        "Georreferenciamento de imóveis",
+        "Mapeamento com drones e GNSS",
+        "Análise espacial e modelagem 3D",
+        "Geração de mapas temáticos e plantas",
       ],
       process: [
-        "Diagnóstico da geração de resíduos",
-        "Classificação e quantificação",
-        "Desenvolvimento do plano de gestão",
-        "Implementação das soluções",
-        "Monitoramento e otimização",
+        "Planejamento do levantamento",
+        "Coleta de dados em campo",
+        "Processamento e análise dos dados",
+        "Geração de mapas e relatórios",
+        "Entrega e suporte técnico",
       ],
       color: "cyan",
     },
     {
-      id: "monitoramento",
-      icon: Shield,
-      title: "Monitoramento Ambiental",
-      subtitle: "Programas de acompanhamento da qualidade",
+      id: "geologia-hidrogeologia",
+      icon: Mountain,
+      title: "Geologia e Hidrogeologia",
+      subtitle: "Estudos e soluções para recursos naturais",
       description:
-        "Implementamos programas de monitoramento ambiental para acompanhar a qualidade do ar, água e solo, garantindo conformidade e sustentabilidade.",
+        "Oferecemos estudos geológicos e hidrogeológicos para avaliação de recursos naturais, gestão de águas subterrâneas e suporte a empreendimentos.",
       benefits: [
-        "Monitoramento da qualidade do ar",
-        "Análise da qualidade da água",
-        "Monitoramento do solo",
-        "Relatórios técnicos periódicos",
-        "Alertas de não conformidade",
+        "Estudos geológicos e geotécnicos",
+        "Investigação e avaliação hidrogeológica",
+        "Modelagem de aquíferos",
+        "Monitoramento de poços e nascentes",
+        "Gestão de recursos hídricos subterrâneos",
       ],
       process: [
-        "Definição dos parâmetros de monitoramento",
-        "Instalação de equipamentos",
-        "Coleta e análise de dados",
-        "Elaboração de relatórios",
-        "Recomendações de melhorias",
+        "Coleta e análise de dados geológicos",
+        "Execução de sondagens e ensaios",
+        "Modelagem e interpretação de dados",
+        "Elaboração de relatórios técnicos",
+        "Acompanhamento e recomendações",
       ],
       color: "blue",
     },
@@ -168,18 +169,20 @@ export default function SolucoesPage() {
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6">Nossas Soluções</h1>
           <p className="text-xl text-emerald-700 max-w-3xl mx-auto leading-relaxed mb-8">
-            Oferecemos um portfólio completo de serviços em consultoria ambiental, desenvolvidos para atender às
-            necessidades específicas de cada cliente com excelência técnica e inovação.
+            Oferecemos um portfólio completo de serviços em engenharia, consultoria ambiental, fundiária, topografia, geoprocessamento, geologia e hidrogeologia, desenvolvidos para atender às necessidades específicas de cada cliente com excelência técnica e inovação.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="bg-white/70 px-6 py-3 rounded-full">
-              <span className="text-emerald-800 font-semibold">✓ Licenciamento Ambiental</span>
+              <span className="text-emerald-800 font-semibold">✓ Engenharia e Consultoria</span>
             </div>
             <div className="bg-white/70 px-6 py-3 rounded-full">
-              <span className="text-emerald-800 font-semibold">✓ Consultoria Especializada</span>
+              <span className="text-emerald-800 font-semibold">✓ Licenciamento, Monitoramento e Consultoria Ambiental</span>
             </div>
             <div className="bg-white/70 px-6 py-3 rounded-full">
-              <span className="text-emerald-800 font-semibold">✓ Estudos Técnicos</span>
+              <span className="text-emerald-800 font-semibold">✓ Gestão Fundiária, Topografia e Geoprocessamento</span>
+            </div>
+            <div className="bg-white/70 px-6 py-3 rounded-full">
+              <span className="text-emerald-800 font-semibold">✓ Geologia e Hidrogeologia</span>
             </div>
           </div>
         </div>
@@ -200,7 +203,7 @@ export default function SolucoesPage() {
                   className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? "lg:grid-flow-col-dense" : ""}`}
                 >
                   {/* Conteúdo */}
-                  <div className={!isEven ? "lg:col-start-2" : ""}>
+                  <div className={isEven ? "" : "lg:col-start-2"}>
                     <div className="flex items-center gap-4 mb-6">
                       <div className={`w-16 h-16 ${colors.icon} rounded-2xl flex items-center justify-center`}>
                         <IconComponent className="w-8 h-8" />
@@ -245,7 +248,7 @@ export default function SolucoesPage() {
                   </div>
 
                   {/* Visual */}
-                  <div className={!isEven ? "lg:col-start-1 lg:row-start-1" : ""}>
+                  <div className={isEven ? "" : "lg:col-start-1 lg:row-start-1"}>
                     <div
                       className={`${colors.bg} ${colors.border} border-2 rounded-3xl p-8 h-96 flex items-center justify-center`}
                     >
@@ -299,7 +302,7 @@ export default function SolucoesPage() {
               <div className="text-emerald-800 font-semibold">Projetos Realizados</div>
             </div>
             <div className="p-6">
-              <div className="text-4xl font-bold text-emerald-600 mb-2">15+</div>
+              <div className="text-4xl font-bold text-emerald-600 mb-2">5+</div>
               <div className="text-emerald-800 font-semibold">Anos de Experiência</div>
             </div>
             <div className="p-6">

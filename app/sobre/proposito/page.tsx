@@ -1,4 +1,5 @@
 import { Target, Heart, Leaf, Globe } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function PropositoPage() {
   const pillars = [
@@ -82,7 +83,7 @@ export default function PropositoPage() {
               <div className="text-emerald-600 text-sm">Realizados com sucesso</div>
             </div>
             <div className="text-center p-6">
-              <div className="text-4xl font-bold text-emerald-600 mb-4">15+</div>
+              <div className="text-4xl font-bold text-emerald-600 mb-4">5+</div>
               <div className="text-emerald-800 font-semibold mb-2">Anos de Atuação</div>
               <div className="text-emerald-600 text-sm">Construindo um futuro sustentável</div>
             </div>
