@@ -203,7 +203,7 @@ export default function SolucoesPage() {
                   className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? "lg:grid-flow-col-dense" : ""}`}
                 >
                   {/* Conteúdo */}
-                  <div className={!isEven ? "lg:col-start-2" : ""}>
+                  <div className={isEven ? "" : "lg:col-start-2"}>
                     <div className="flex items-center gap-4 mb-6">
                       <div className={`w-16 h-16 ${colors.icon} rounded-2xl flex items-center justify-center`}>
                         <IconComponent className="w-8 h-8" />
