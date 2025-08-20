@@ -131,6 +131,7 @@ export default function HomePage() {
                 if (fallback) fallback.style.opacity = "0";
               }}
             >
+              <source src="/bg_video.webm" type="video/webm" />
               <source src="/bg_video.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
