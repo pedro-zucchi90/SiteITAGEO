@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, Users, Target, Briefcase, MapPin } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function SobrePage() {
   const sections = [

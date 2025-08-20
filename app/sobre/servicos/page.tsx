@@ -1,4 +1,5 @@
 import { Briefcase, FileCheck, Users, Zap, Shield } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function ServicosPage() {
   const services = [

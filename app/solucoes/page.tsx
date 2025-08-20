@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle, Users, FileCheck, Briefcase, Zap, Shield, Phone, Globe, Map, LandPlot, Mountain } from "lucide-react"
+import { ArrowRight, CheckCircle, FileCheck, Briefcase, Phone, Map, LandPlot, Mountain } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function SolucoesPage() {
   const solutions = [

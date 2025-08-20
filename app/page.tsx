@@ -24,6 +24,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+import { Chatbot }  from "@/components/chatbot";
+
 export default function HomePage() {
   const values = [
     {
@@ -115,7 +117,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
         {/* Video Background */}
@@ -214,34 +216,28 @@ export default function HomePage() {
 
             {/* Statistics Cards */}
             <RevealHero className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 sm:mb-0" stagger={0.15}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
-                    <CheckCircle className="w-8 h-8 text-green-200" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">500+</div>
-                  <div className="text-green-100 font-medium text-sm sm:text-base">Projetos Sustentáveis</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center">
+                  <CheckCircle className="w-8 h-8 text-green-200" />
                 </div>
+                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">500+</div>
+                <div className="text-green-100 font-medium text-sm sm:text-base">Projetos Sustentáveis</div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-green-200" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">5+</div>
-                  <div className="text-green-100 font-medium text-sm sm:text-base">Anos de Experiência</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-green-200" />
                 </div>
+                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">5+</div>
+                <div className="text-green-100 font-medium text-sm sm:text-base">Anos de Experiência</div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-green-200" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">100%</div>
-                  <div className="text-green-100 font-medium text-sm sm:text-base">Comprometimento Ambiental</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center">
+                  <Heart className="w-8 h-8 text-green-200" />
                 </div>
+                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">100%</div>
+                <div className="text-green-100 font-medium text-sm sm:text-base">Comprometimento Ambiental</div>
               </div>
             </RevealHero>
             <div className="block sm:hidden h-8" />
@@ -277,7 +273,7 @@ export default function HomePage() {
                 return (
                   <div
                     key={index}
-                    className="text-center p-4 sm:p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                    className="flex flex-col items-center justify-center text-center p-4 sm:p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow h-full"
                   >
                     <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600" />
@@ -298,14 +294,14 @@ export default function HomePage() {
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-emerald-900 mb-8 sm:mb-12">Nosso Propósito</h2>
             <RevealSection className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12" stagger={0.3}>
-              <div className="bg-emerald-50 rounded-2xl p-5 sm:p-8">
+              <div className="flex flex-col items-center justify-center text-center bg-emerald-50 rounded-2xl p-5 sm:p-8 h-full">
                 <h3 className="text-xl sm:text-2xl font-bold text-emerald-800 mb-4 sm:mb-6">Missão</h3>
                 <p className="text-base sm:text-xl text-emerald-700 leading-relaxed">
                   Oferecer soluções ambientais inovadoras e sustentáveis, contribuindo para o desenvolvimento
                   responsável de empresas e comunidades, sempre com excelência técnica e compromisso ético.
                 </p>
               </div>
-              <div className="bg-green-50 rounded-2xl p-5 sm:p-8">
+              <div className="flex flex-col items-center justify-center text-center bg-green-50 rounded-2xl p-5 sm:p-8 h-full">
                 <h3 className="text-xl sm:text-2xl font-bold text-emerald-800 mb-4 sm:mb-6">Visão</h3>
                 <p className="text-base sm:text-xl text-emerald-700 leading-relaxed">
                   Ser reconhecida como referência em consultoria ambiental, liderando a transformação para práticas mais
@@ -322,16 +318,12 @@ export default function HomePage() {
               {pillars.map((pillar, index) => {
                 const IconComponent = pillar.icon;
                 return (
-                  <div key={index} className="bg-emerald-50 rounded-2xl p-5 sm:p-8 hover:shadow-md transition-shadow">
-                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mb-2 sm:mb-0">
-                        <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg sm:text-2xl font-bold text-emerald-900 mb-2 sm:mb-4">{pillar.title}</h4>
-                        <p className="text-emerald-700 text-sm sm:text-base leading-relaxed">{pillar.description}</p>
-                      </div>
+                  <div key={index} className="flex flex-col items-center justify-center text-center bg-emerald-50 rounded-2xl p-5 sm:p-8 hover:shadow-md transition-shadow h-full">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-2 sm:mb-4">
+                      <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600" />
                     </div>
+                    <h4 className="text-lg sm:text-2xl font-bold text-emerald-900 mb-2 sm:mb-4">{pillar.title}</h4>
+                    <p className="text-emerald-700 text-sm sm:text-base leading-relaxed">{pillar.description}</p>
                   </div>
                 );
               })}
@@ -356,8 +348,21 @@ export default function HomePage() {
               const IconComponent = service.icon;
               return (
                 <RevealSection key={index} stagger={0.1}>
-                  <div className="group h-full">
-                    <div className={`bg-white rounded-2xl p-5 sm:p-8 h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2 flex flex-col relative overflow-hidden my-2`}>
+                  <div className="group flex h-full">
+                    <div
+                      className={`
+                        bg-white rounded-2xl p-5 sm:p-8 w-full flex flex-col items-center text-center relative overflow-hidden my-2 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2
+                        min-h-[480px] max-h-[480px] h-[480px]
+                      `}
+                      style={{
+                        minHeight: "480px",
+                        maxHeight: "480px",
+                        height: "480px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between"
+                      }}
+                    >
                       {/* Icon */}
                       <div
                         className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r ${service.color} rounded-xl text-white mb-4 sm:mb-6 transform transition-transform duration-300 hover:scale-110 hover:rotate-3`}
@@ -366,7 +371,7 @@ export default function HomePage() {
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 flex flex-col">
+                      <div className="flex-1 flex flex-col items-center justify-center text-center w-full">
                         <h3 className="text-lg sm:text-2xl font-bold text-emerald-900 mb-1 sm:mb-2">
                           {service.title}
                         </h3>
@@ -378,12 +383,12 @@ export default function HomePage() {
                         </p>
 
                         {/* Features List */}
-                        <div className="flex-1">
+                        <div className="flex-1 w-full">
                           <ul className="space-y-2 sm:space-y-3">
                             {service.features.map((feature, featureIndex) => (
                               <li
                                 key={featureIndex}
-                                className="flex items-center space-x-2 sm:space-x-3 text-emerald-700 opacity-0 -translate-x-4 animate-[slideIn_0.4s_ease-out_forwards]"
+                                className="flex items-center justify-center space-x-2 sm:space-x-3 text-emerald-700 opacity-0 -translate-x-4 animate-[slideIn_0.4s_ease-out_forwards]"
                                 style={{ animationDelay: `${featureIndex * 0.1 + 0.2}s` }}
                               >
                                 <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full`}></div>
@@ -392,19 +397,19 @@ export default function HomePage() {
                             ))}
                           </ul>
                         </div>
+                      </div>
 
-                        {/* CTA Button */}
-                        <div className="mt-6 sm:mt-8 transform transition-transform duration-200 hover:scale-[1.02]">
-                          <Button
-                            asChild
-                            className={`w-full bg-gradient-to-r ${service.color} text-white hover:shadow-lg transition-all duration-200`}
-                          >
-                            <Link href="/solucoes" className="flex items-center justify-center gap-2">
-                              Saiba Mais
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                          </Button>
-                        </div>
+                      {/* CTA Button */}
+                      <div className="mt-6 sm:mt-8 transform transition-transform duration-200 hover:scale-[1.02] w-full">
+                        <Button
+                          asChild
+                          className={`w-full bg-gradient-to-r ${service.color} text-white hover:shadow-lg transition-all duration-200`}
+                        >
+                          <Link href="/solucoes" className="flex items-center justify-center gap-2">
+                            Saiba Mais
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -444,7 +449,7 @@ export default function HomePage() {
               ].map((process, index) => {
                 const ProcessIcon = process.icon;
                 return (
-                  <div key={index} className="text-center group">
+                  <div key={index} className="flex flex-col items-center justify-center text-center group h-full">
                     <div className="relative mb-4 sm:mb-6">
                       <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                         <ProcessIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />

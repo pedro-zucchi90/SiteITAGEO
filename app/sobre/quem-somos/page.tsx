@@ -1,4 +1,5 @@
 import { Users, Award, Shield, Lightbulb } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function QuemSomosPage() {
   const values = [

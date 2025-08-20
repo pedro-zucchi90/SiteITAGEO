@@ -1,4 +1,5 @@
 import { Target, Heart, Leaf, Globe } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function PropositoPage() {
   const pillars = [

@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { Chatbot }  from "@/components/chatbot";
 
 export default function LocalizacaoPage() {
   return (
