@@ -146,7 +146,9 @@ export function Chatbot() {
   return (
     <div
       className={`
-        fixed right-6 z-50 w-[95vw] max-w-sm md:max-w-md
+        fixed
+        left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-6
+        z-50 w-[95vw] max-w-sm md:max-w-md
         ${chatbotTransition}
         ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}
       `}
