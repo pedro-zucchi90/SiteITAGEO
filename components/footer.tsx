@@ -20,16 +20,6 @@ export function Footer() {
               Consultoria ambiental especializada em licenciamento, estudos ambientais e gestão de resíduos para
               empresas em Santa Catarina.
             </p>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-emerald-400">
-                <Leaf className="h-4 w-4" />
-                <span className="text-xs">Sustentabilidade</span>
-              </div>
-              <div className="flex items-center gap-2 text-emerald-400">
-                <Shield className="h-4 w-4" />
-                <span className="text-xs">Conformidade</span>
-              </div>
-            </div>
           </div>
 
           {/* info de contato */}
@@ -138,12 +128,6 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-400">© {new Date().getFullYear()} ITÁGEO Ambiental. Todos os direitos reservados.</p>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-emerald-400">
-                <Award className="h-4 w-4" />
-                <span className="text-xs">Certificação ISO 14001</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

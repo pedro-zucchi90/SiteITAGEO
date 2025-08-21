@@ -20,7 +20,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "ITÁGEO Ambiental - Consultoria Ambiental em Santa Catarina",
+  title: "ITAGEO Ambiental - Consultoria Ambiental em Santa Catarina",
   description:
     "Consultoria ambiental especializada em licenciamento, estudos ambientais e gestão de resíduos. Atendemos empresas em Santa Catarina com excelência e conformidade.",
   generator: "v0.app",
