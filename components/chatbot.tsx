@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 type ChatMessage = {
   type: "user" | "bot"
   text: string
+  isTyping?: boolean
 }
 
 const preSetQuestions = [
@@ -22,21 +23,21 @@ const preSetQuestions = [
 
 const preSetAnswers: Record<string, string> = {
   "Quais são as soluções oferecidas pela ITÁGEO?":
-    "Oferecemos soluções em Engenharia e Consultoria, Licenciamento, Monitoramento e Consultoria Ambiental, Gestão e Regularização Fundiária, Topografia e Geoprocessamento, além de Geologia e Hidrogeologia. Veja detalhes em 'Nossas Soluções'.",
+    "🚀 Oferecemos soluções em Engenharia e Consultoria, Licenciamento, Monitoramento Ambiental, Regularização Fundiária, Topografia, Geoprocessamento, além de Geologia e Hidrogeologia. 🌱",
   "Como posso solicitar um orçamento personalizado?":
-    "Você pode solicitar um orçamento através do nosso formulário de contato, pelo telefone (49) 3458-2055 ou pelo e-mail itageo@itageoambiental.com.br.",
+    "💡 Fácil! Você pode solicitar um orçamento através do nosso formulário de contato, pelo telefone 📞 (49) 3458-2055 ou pelo e-mail ✉️ itageo@itageoambiental.com.br.",
   "Onde fica a sede da ITÁGEO?":
-    "Nossa sede está localizada na Av. Tancredo Neves, 294, Pioneiros, Itá - SC. CEP: 89760-000.",
+    "📍 Nossa sede está localizada na Av. Tancredo Neves, 294, Pioneiros, Itá - SC. CEP: 89760-000.",
   "Quais são os horários de atendimento?":
-    "Atendemos de segunda a sexta-feira, das 8h às 12h e das 13h30 às 18h.",
+    "🕒 Atendemos de segunda a sexta-feira, das 8h às 12h e das 13h30 às 18h.",
   "Como posso entrar em contato com a equipe?":
-    "Entre em contato pelo e-mail itageo@itageoambiental.com.br, telefone (49) 3458-2055 ou pelo nosso formulário de contato.",
+    "📬 Entre em contato pelo e-mail itageo@itageoambiental.com.br, telefone 📞 (49) 3458-2055 ou pelo nosso formulário de contato.",
   "Quais áreas de atuação a ITÁGEO cobre?":
-    "Atuamos em projetos de engenharia, consultoria ambiental, regularização fundiária, topografia, geoprocessamento, geologia e hidrogeologia, atendendo empresas, propriedades rurais e urbanas.",
+    "🌍 Atuamos em engenharia, consultoria ambiental, regularização fundiária, topografia, geoprocessamento, geologia e hidrogeologia. Atendemos empresas, propriedades rurais e urbanas.",
   "Quais os diferenciais da ITÁGEO?":
-    "Temos mais de 5 anos de experiência, mais de 500 projetos realizados, equipe multidisciplinar, atendimento personalizado e foco em inovação, sustentabilidade e conformidade legal.",
+    "✨ Temos mais de 5 anos de experiência, +500 projetos realizados, equipe multidisciplinar e foco em inovação, sustentabilidade e conformidade legal.",
   "Tenho uma dúvida mais complexa":
-    "Para dúvidas mais complexas, por favor, entre em contato conosco pelo formulário de contato, telefone (49) 3458-2055 ou e-mail itageo@itageoambiental.com.br. Teremos prazer em ajudar!",
+    "🤔 Para dúvidas mais complexas, fale conosco pelo formulário de contato, telefone 📞 (49) 3458-2055 ou e-mail ✉️ itageo@itageoambiental.com.br. Vamos adorar ajudar! 🚀",
 }
 
 export function Chatbot() {
@@ -44,13 +45,13 @@ export function Chatbot() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       type: "bot",
-      text: "Olá! 👋 Sou Téo, assistente virtual da ITÁGEO. Como posso ajudar você hoje?",
+      text: "Olá! 👋 Sou Téo, seu assistente virtual da ITÁGEO. Vamos bater um papo? 😃",
     },
   ])
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [fadeOut, setFadeOut] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  // Detecta se o scroll está abaixo de 300px para mostrar o botão de scroll-to-top
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -63,6 +64,27 @@ export function Chatbot() {
     return () => window.removeEventListener("scroll", toggleVisibility)
   }, [])
 
+  // Adiciona fade out ao scrollar, igual à navbar
+  useEffect(() => {
+    if (!open) {return}
+
+    let timeout: NodeJS.Timeout | null = null
+
+    const handleScrollFade = () => {
+      setFadeOut(true)
+      timeout = setTimeout(() => {
+        setOpen(false)
+        setFadeOut(false)
+      }, 250) // tempo igual ao transition
+    }
+
+    window.addEventListener("scroll", handleScrollFade)
+    return () => {
+      window.removeEventListener("scroll", handleScrollFade)
+      if (timeout) {clearTimeout(timeout)}
+    }
+  }, [open])
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, open])
@@ -72,27 +94,30 @@ export function Chatbot() {
 
     setMessages((msgs) => [...msgs, { type: "user", text }])
 
+    // Exibe indicador de "digitando..."
+    setMessages((msgs) => [...msgs, { type: "bot", text: "digitando...", isTyping: true }])
+
     setTimeout(() => {
-      if (preSetAnswers[text]) {
-        setMessages((msgs) => [
-          ...msgs,
-          { type: "bot", text: preSetAnswers[text] },
-        ])
-      } else {
-        setMessages((msgs) => [
-          ...msgs,
-          {
-            type: "bot",
-            text:
-              "Para dúvidas mais complexas, por favor, entre em contato conosco pelo formulário de contato, telefone (49) 3458-2055 ou e-mail contato@itageoambiental.com.br.",
-          },
-        ])
-      }
-    }, 600)
+      setMessages((msgs) => {
+        const newMsgs = msgs.filter((m) => !m.isTyping)
+        if (preSetAnswers[text]) {
+          return [...newMsgs, { type: "bot", text: preSetAnswers[text] }]
+        } else {
+          return [
+            ...newMsgs,
+            {
+              type: "bot",
+              text:
+                "🤖 Hmm... essa é difícil! Para dúvidas mais complexas, entre em contato conosco pelo formulário, telefone 📞 (49) 3458-2055 ou e-mail ✉️ itageo@itageoambiental.com.br.",
+            },
+          ]
+        }
+      })
+    }, 1200)
   }
 
-  // Define o deslocamento do botão do chatbot quando o scroll-to-top aparece
-  const chatbotBottom = showScrollTop ? 104 : 24 // 104px = 24px + 80px (altura do botão scroll-to-top + espaçamento)
+  // Define deslocamento do botão do chatbot
+  const chatbotBottom = showScrollTop ? 104 : 24
   const chatbotTransition = "transition-all duration-300 ease-in-out"
 
   if (!open)
@@ -123,17 +148,16 @@ export function Chatbot() {
       className={`
         fixed right-6 z-50 w-[95vw] max-w-sm md:max-w-md
         ${chatbotTransition}
+        ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}
       `}
-      style={{
-        bottom: chatbotBottom,
-      }}
+      style={{ bottom: chatbotBottom }}
     >
-      <div className="bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col h-[480px]">
+      <div className="bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col h-[500px]">
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-emerald-600 rounded-t-xl">
           <div className="flex items-center gap-2">
             <MessageCircle className="h-5 w-5 text-white" />
-            <span className="font-semibold text-white">Fale com Téo</span>
+            <span className="font-semibold text-white">Fale com Téo 🤖</span>
           </div>
           <button
             onClick={() => setOpen(false)}
@@ -154,9 +178,11 @@ export function Chatbot() {
               }`}
             >
               <div
-                className={`px-4 py-2 rounded-lg max-w-[80%] text-sm ${
+                className={`px-4 py-2 rounded-lg max-w-[80%] text-base animate-fade-in ${
                   msg.type === "user"
                     ? "bg-emerald-600 text-white"
+                    : msg.isTyping
+                    ? "bg-gray-200 text-gray-600 italic"
                     : "bg-white border border-gray-200 text-gray-800"
                 }`}
               >
@@ -167,7 +193,7 @@ export function Chatbot() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Perguntas Rápidas - Disposição melhorada para ocupar menos espaço */}
+        {/* Perguntas rápidas */}
         <div className="px-4 pb-4">
           <div className="flex gap-2 overflow-x-auto no-scrollbar justify-start">
             {preSetQuestions.map((q) => (
@@ -176,10 +202,7 @@ export function Chatbot() {
                 className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-sm px-4 py-2 rounded-full transition-colors font-medium whitespace-normal break-words flex-shrink-0"
                 onClick={() => handleSend(q)}
                 type="button"
-                style={{
-                  minWidth: "140px",
-                  maxWidth: "220px",
-                }}
+                style={{ minWidth: "140px", maxWidth: "220px" }}
               >
                 {q}
               </button>
