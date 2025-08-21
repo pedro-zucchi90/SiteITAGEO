@@ -44,7 +44,7 @@ export function ScrollToTop() {
       onClick={scrollToTop}
       aria-label="Voltar ao topo"
     >
-      <ChevronUp className="h-6 w-6 md:h-7 md:w-7" />
+      <ChevronUp className="h-12 w-12 md:h-14 md:w-14" />
     </Button>
   )
 }

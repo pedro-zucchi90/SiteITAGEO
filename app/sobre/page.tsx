@@ -36,6 +36,7 @@ export default function SobrePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50">
+      
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">

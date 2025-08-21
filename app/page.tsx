@@ -118,9 +118,12 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen relative">
+        <div>
+          <Chatbot />
+        </div>
       {/* Hero Section */}
         <section className="relative min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 overflow-visible">
-          {/* Video Background Hero */}
+          {/* Video Hero */}
           <div className="absolute inset-0 z-20" id="video-container">
             <video
               autoPlay
@@ -139,33 +142,20 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
           </div>
 
-          {/* Créditos do vídeo */}
-          <div className="absolute bottom-2 right-4 z-40 text-white/80 text-xs md:text-sm">
-            Vídeo de drone de Itá - SC por{" "}
+          {/* Créditos do vídeo/imagens aéreas */}
+          <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
+            Imagens aéreas de Itá - SC por{" "}
             <a
               href="https://www.youtube.com/@CAV07"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-green-200"
+              className="underline hover:text-green-200 break-all"
             >
               CAV07
             </a>
           </div>
 
-        {/* Créditos do vídeo */}
-        <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
-          Imagens aéreas de Itá - SC por{" "}
-          <a
-            href="https://www.youtube.com/@CAV07"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-green-200 break-all"
-          >
-            CAV07
-          </a>
-        </div>
-
-        {/* Fallback Background Pattern */}
+        {/* Fallback Background */}
         <div
           className="absolute inset-0 z-10 opacity-20 transition-opacity duration-1000"
           id="fallback-container"
@@ -305,26 +295,6 @@ export default function HomePage() {
       {/* Mission & Vision Section */}
       <section className="py-12 sm:py-20 px-2 sm:px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-900 mb-8 sm:mb-12">Nosso Propósito</h2>
-            <RevealSection className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12" stagger={0.3}>
-              <div className="flex flex-col items-center justify-center text-center bg-emerald-50 rounded-2xl p-5 sm:p-8 h-full">
-                <h3 className="text-xl sm:text-2xl font-bold text-emerald-800 mb-4 sm:mb-6">Missão</h3>
-                <p className="text-base sm:text-xl text-emerald-700 leading-relaxed">
-                  Oferecer soluções ambientais inovadoras e sustentáveis, contribuindo para o desenvolvimento
-                  responsável de empresas e comunidades, sempre com excelência técnica e compromisso ético.
-                </p>
-              </div>
-              <div className="flex flex-col items-center justify-center text-center bg-green-50 rounded-2xl p-5 sm:p-8 h-full">
-                <h3 className="text-xl sm:text-2xl font-bold text-emerald-800 mb-4 sm:mb-6">Visão</h3>
-                <p className="text-base sm:text-xl text-emerald-700 leading-relaxed">
-                  Ser reconhecida como referência em consultoria ambiental, liderando a transformação para práticas mais
-                  sustentáveis no mercado brasileiro.
-                </p>
-              </div>
-            </RevealSection>
-          </div>
-
           {/* Pillars */}
           <div>
             <h3 className="text-2xl sm:text-3xl font-bold text-emerald-900 text-center mb-8 sm:mb-12">Nossos Pilares</h3>

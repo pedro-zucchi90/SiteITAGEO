@@ -10,27 +10,33 @@ type ChatMessage = {
 }
 
 const preSetQuestions = [
-  "Quais serviços a ITÁGEO oferece?",
-  "Como posso solicitar um orçamento?",
-  "Onde a ITÁGEO está localizada?",
+  "Quais são as soluções oferecidas pela ITÁGEO?",
+  "Como posso solicitar um orçamento personalizado?",
+  "Onde fica a sede da ITÁGEO?",
   "Quais são os horários de atendimento?",
-  "Como entrar em contato com a ITÁGEO?",
+  "Como posso entrar em contato com a equipe?",
+  "Quais áreas de atuação a ITÁGEO cobre?",
+  "Quais os diferenciais da ITÁGEO?",
   "Tenho uma dúvida mais complexa",
 ]
 
 const preSetAnswers: Record<string, string> = {
-  "Quais serviços a ITÁGEO oferece?":
-    "Oferecemos consultoria ambiental, licenciamento, estudos ambientais, gestão de resíduos e monitoramento ambiental. Veja mais em 'Nossas Soluções'.",
-  "Como posso solicitar um orçamento?":
-    "Você pode solicitar um orçamento através do nosso formulário de contato ou pelo telefone (49) 3458-2055.",
-  "Onde a ITÁGEO está localizada?":
-    "Estamos localizados na Av. Tancredo Neves, 294, Pioneiros, Itá - SC. CEP: 89760-000.",
+  "Quais são as soluções oferecidas pela ITÁGEO?":
+    "Oferecemos soluções em Engenharia e Consultoria, Licenciamento, Monitoramento e Consultoria Ambiental, Gestão e Regularização Fundiária, Topografia e Geoprocessamento, além de Geologia e Hidrogeologia. Veja detalhes em 'Nossas Soluções'.",
+  "Como posso solicitar um orçamento personalizado?":
+    "Você pode solicitar um orçamento através do nosso formulário de contato, pelo telefone (49) 3458-2055 ou pelo e-mail itageo@itageoambiental.com.br.",
+  "Onde fica a sede da ITÁGEO?":
+    "Nossa sede está localizada na Av. Tancredo Neves, 294, Pioneiros, Itá - SC. CEP: 89760-000.",
   "Quais são os horários de atendimento?":
-    "Atendemos de segunda a sexta, das 8:00 às 12:00 e das 13:30 às 18:00.",
-  "Como entrar em contato com a ITÁGEO?":
-    "Entre em contato pelo e-mail contato@itageoambiental.com.br ou pelo telefone (49) 3458-2055.",
+    "Atendemos de segunda a sexta-feira, das 8h às 12h e das 13h30 às 18h.",
+  "Como posso entrar em contato com a equipe?":
+    "Entre em contato pelo e-mail itageo@itageoambiental.com.br, telefone (49) 3458-2055 ou pelo nosso formulário de contato.",
+  "Quais áreas de atuação a ITÁGEO cobre?":
+    "Atuamos em projetos de engenharia, consultoria ambiental, regularização fundiária, topografia, geoprocessamento, geologia e hidrogeologia, atendendo empresas, propriedades rurais e urbanas.",
+  "Quais os diferenciais da ITÁGEO?":
+    "Temos mais de 5 anos de experiência, mais de 500 projetos realizados, equipe multidisciplinar, atendimento personalizado e foco em inovação, sustentabilidade e conformidade legal.",
   "Tenho uma dúvida mais complexa":
-    "Para dúvidas mais complexas, por favor, entre em contato conosco pelo formulário de contato, telefone (49) 3458-2055 ou e-mail contato@itageoambiental.com.br. Teremos prazer em ajudar!",
+    "Para dúvidas mais complexas, por favor, entre em contato conosco pelo formulário de contato, telefone (49) 3458-2055 ou e-mail itageo@itageoambiental.com.br. Teremos prazer em ajudar!",
 }
 
 export function Chatbot() {
@@ -161,15 +167,19 @@ export function Chatbot() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Pre-set Questions */}
+        {/* Perguntas Rápidas - Disposição melhorada para ocupar menos espaço */}
         <div className="px-4 pb-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="flex gap-2 overflow-x-auto no-scrollbar justify-start">
             {preSetQuestions.map((q) => (
               <button
                 key={q}
-                className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-sm px-4 py-2 rounded-full transition-colors font-medium w-full text-left"
+                className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-sm px-4 py-2 rounded-full transition-colors font-medium whitespace-normal break-words flex-shrink-0"
                 onClick={() => handleSend(q)}
                 type="button"
+                style={{
+                  minWidth: "140px",
+                  maxWidth: "220px",
+                }}
               >
                 {q}
               </button>

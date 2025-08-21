@@ -4,6 +4,9 @@ import { Chatbot }  from "@/components/chatbot";
 export default function LocalizacaoPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50">
+      <div>
+        <Chatbot />
+      </div>
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
