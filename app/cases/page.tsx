@@ -1,15 +1,9 @@
+"use client";
+import { useState } from "react";
 import { Calendar, MapPin, Users, Award, ArrowRight, CheckCircle } from "lucide-react"
 import { Chatbot }  from "@/components/chatbot";
 
 export default function CasesPage() {
-  const categories = [
-    { id: "all", name: "Todos os Projetos", count: 12 },
-    { id: "licensing", name: "Licenciamento", count: 4 },
-    { id: "consulting", name: "Consultoria", count: 3 },
-    { id: "studies", name: "Estudos Ambientais", count: 3 },
-    { id: "monitoring", name: "Monitoramento", count: 2 },
-  ]
-
   const cases = [
     {
       id: 1,
@@ -179,7 +173,38 @@ export default function CasesPage() {
       ],
       tags: ["Auditoria", "Setor Têxtil", "Gestão Ambiental"],
     },
-  ]
+  ];
+
+  // Gerar categorias dinamicamente a partir dos cases
+  const categoryMap: Record<string, { name: string; count: number }> = {};
+  cases.forEach((c) => {
+    if (!categoryMap[c.category]) {
+      let name = "";
+      if (c.category === "licensing") {name = "Licenciamento";}
+      else if (c.category === "consulting") {name = "Consultoria";}
+      else if (c.category === "studies") {name = "Estudos Ambientais";}
+      else if (c.category === "monitoring") {name = "Monitoramento";}
+      else {name = c.category};
+      categoryMap[c.category] = { name, count: 1 };
+    } else {
+      categoryMap[c.category].count += 1;
+    }
+  });
+  const categories = [
+    { id: "all", name: "Todos os Projetos", count: cases.length },
+    ...Object.entries(categoryMap).map(([id, { name, count }]) => ({
+      id,
+      name,
+      count,
+    })),
+  ];
+
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+  const filteredCases =
+    selectedCategory === "all"
+      ? cases
+      : cases.filter((c) => c.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50">
@@ -222,7 +247,11 @@ export default function CasesPage() {
             {categories.map((category) => (
               <button
                 key={category.id}
-                className="px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-colors font-semibold"
+                className={`px-6 py-3 bg-white border-2 border-emerald-200 text-emerald-700 rounded-full hover:bg-emerald-50 hover:border-emerald-300 transition-colors font-semibold
+                  ${selectedCategory === category.id ? "bg-emerald-100 border-emerald-400 text-emerald-900" : ""}
+                `}
+                onClick={() => setSelectedCategory(category.id)}
+                type="button"
               >
                 {category.name} ({category.count})
               </button>
@@ -235,7 +264,7 @@ export default function CasesPage() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
-            {cases.map((caseItem) => (
+            {filteredCases.map((caseItem) => (
               <div
                 key={caseItem.id}
                 className="bg-white rounded-3xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
@@ -298,14 +327,15 @@ export default function CasesPage() {
                       ))}
                     </ul>
                   </div>
-
-                  <button className="mt-6 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors flex items-center gap-2">
-                    Ver detalhes completos
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {/* Botão de detalhes removido conforme solicitado */}
                 </div>
               </div>
             ))}
+            {filteredCases.length === 0 && (
+              <div className="col-span-2 text-center text-emerald-700 text-lg py-12">
+                Nenhum case encontrado para esta categoria.
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -94,7 +94,6 @@ export function Chatbot() {
 
     setMessages((msgs) => [...msgs, { type: "user", text }])
 
-    // Exibe indicador de "digitando..."
     setMessages((msgs) => [...msgs, { type: "bot", text: "digitando...", isTyping: true }])
 
     setTimeout(() => {
@@ -159,7 +158,7 @@ export function Chatbot() {
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-emerald-600 rounded-t-xl">
           <div className="flex items-center gap-2">
             <MessageCircle className="h-5 w-5 text-white" />
-            <span className="font-semibold text-white">Fale com Téo 🤖</span>
+            <span className="font-semibold text-white">Fale com Téo</span>
           </div>
           <button
             onClick={() => setOpen(false)}
