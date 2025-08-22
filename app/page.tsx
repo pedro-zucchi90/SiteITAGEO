@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
+import { InstagramIcon, FacebookIcon } from "@/components/social"
 import { RevealSection } from "@/components/ui/reveal-section";
 import { RevealHero } from "@/components/ui/reveal-hero";
 import {
@@ -185,14 +185,14 @@ export default function HomePage() {
           <div className="w-full max-w-4xl mx-auto text-center text-white">
             <RevealHero stagger={0.15}>
               {/* Main Headline */}
-              <h1 className="mt-8 sm:mt-0 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="mt-8 sm:mt-0 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 Sustentabilidade e
                 <br />
                 <span className="text-green-200">Inovação Ambiental</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base xs:text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed opacity-95">
+              <p className="text-base xs:text-lg sm:text-xl md:text-2xl mb-10 sm:mb-14 max-w-3xl mx-auto leading-relaxed opacity-95">
                 Consultoria especializada em soluções ambientais sustentáveis,
                 <br className="hidden xs:inline" />
                 comprometida com o futuro do nosso planeta.
@@ -200,7 +200,7 @@ export default function HomePage() {
             </RevealHero>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-16 w-full">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-12">
               <Button
                 asChild
                 size="lg"
@@ -219,32 +219,28 @@ export default function HomePage() {
             </div>
 
             {/* Statistics Cards */}
-            <RevealHero className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 sm:mb-0" stagger={0.15}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
-                <div className="w-12 h-12 mb-3 flex items-center justify-center">
-                  <CheckCircle className="w-8 h-8 text-green-200" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">500+</div>
-                <div className="text-green-100 font-medium text-sm sm:text-base">Projetos Sustentáveis</div>
+            <RevealHero
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+              stagger={0.15}
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+                <CheckCircle className="w-8 h-8 text-green-200 mb-3" />
+                <div className="text-2xl sm:text-3xl font-bold mb-1">500+</div>
+                <p className="text-green-100 font-medium text-sm sm:text-base">Projetos Sustentáveis</p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
-                <div className="w-12 h-12 mb-3 flex items-center justify-center">
-                  <Clock className="w-8 h-8 text-green-200" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">5+</div>
-                <div className="text-green-100 font-medium text-sm sm:text-base">Anos de Experiência</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+                <Clock className="w-8 h-8 text-green-200 mb-3" />
+                <div className="text-2xl sm:text-3xl font-bold mb-1">5+</div>
+                <p className="text-green-100 font-medium text-sm sm:text-base">Anos de Experiência</p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center justify-center text-center h-full">
-                <div className="w-12 h-12 mb-3 flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-green-200" />
-                </div>
-                <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">100%</div>
-                <div className="text-green-100 font-medium text-sm sm:text-base">Comprometimento Ambiental</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+                <Heart className="w-8 h-8 text-green-200 mb-3" />
+                <div className="text-2xl sm:text-3xl font-bold mb-1">100%</div>
+                <p className="text-green-100 font-medium text-sm sm:text-base">Comprometimento Ambiental</p>
               </div>
             </RevealHero>
-            <div className="block sm:hidden h-8" />
           </div>
         </div>
       </section>

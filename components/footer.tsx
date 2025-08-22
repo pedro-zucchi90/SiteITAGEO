@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { MapPin, Phone, Clock, Mail, Leaf, Shield, Award } from "lucide-react"
+import { InstagramIcon, FacebookIcon } from "@/components/social"
+
 
 export function Footer() {
   return (
@@ -20,6 +22,32 @@ export function Footer() {
               Consultoria ambiental especializada em licenciamento, estudos ambientais e gestão de resíduos para
               empresas em Santa Catarina.
             </p>
+            {/* Redes sociais - destaque maior */}
+            <div className="flex flex-col items-start gap-2 mt-4">
+              <span className="text-emerald-400 font-semibold text-base">Siga nas redes sociais:</span>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/itageoambiental/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram ITÁGEO Ambiental"
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-800 hover:bg-emerald-600 transition-all shadow-md"
+                >
+                  <InstagramIcon className="h-7 w-7 text-white group-hover:text-white transition-colors" />
+                  <span className="font-medium text-white text-sm hidden sm:inline">Instagram</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/itageo/?locale=pt_BR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook ITÁGEO Ambiental"
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-800 hover:bg-emerald-600 transition-all shadow-md"
+                >
+                  <FacebookIcon className="h-7 w-7 text-white group-hover:text-white transition-colors" />
+                  <span className="font-medium text-white text-sm hidden sm:inline">Facebook</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* info de contato */}
