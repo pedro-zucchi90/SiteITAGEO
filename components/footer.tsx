@@ -3,7 +3,6 @@ import Image from "next/image"
 import { MapPin, Phone, Clock, Mail, Leaf, Shield, Award } from "lucide-react"
 import { InstagramIcon, FacebookIcon } from "@/components/social"
 
-
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
@@ -156,6 +155,24 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-400">© {new Date().getFullYear()} ITÁGEO Ambiental. Todos os direitos reservados.</p>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-500">Desenvolvido por</span>
+              <a
+                href="https://pedrozucchi.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+                aria-label="Desenvolvido por Pedro Zucchi"
+              >
+                <Image
+                  src="/pedrozucchi.png"
+                  alt="Pedro Zucchi"
+                  width={80}
+                  height={24}
+                  className="h-6 w-auto"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
