@@ -158,7 +158,7 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500">Desenvolvido por</span>
               <a
-                href="https://pedrozucchi.com.br"
+                href="https://site-portifolio-zucchi.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1"
