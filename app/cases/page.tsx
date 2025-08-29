@@ -13,11 +13,11 @@ import { Chatbot } from "@/components/chatbot";
 
 // Função utilitária para resumir texto
 function resumirTexto(texto: string, limite: number = 220) {
-  if (!texto) return "";
-  if (texto.length <= limite) return texto;
+  if (!texto) {return ""};
+  if (texto.length <= limite) {return texto};
   // Tenta cortar no último ponto antes do limite
   const ponto = texto.lastIndexOf(".", limite);
-  if (ponto > 0) return texto.slice(0, ponto + 1);
+  if (ponto > 0) {return texto.slice(0, ponto + 1)};
   return texto.slice(0, limite) + "...";
 }
 
