@@ -142,19 +142,6 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/70 via-green-500/60 to-green-600/70"></div>
           </div>
 
-          {/* Créditos do vídeo/imagens aéreas */}
-          <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
-            Imagens aéreas de Itá - SC por{" "}
-            <a
-              href="https://www.youtube.com/@CAV07"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-green-200 break-all"
-            >
-              CAV07
-            </a>
-          </div>
-
         {/* Fallback Background */}
         <div
           className="absolute inset-0 z-10 opacity-20 transition-opacity duration-1000"
@@ -241,7 +228,24 @@ export default function HomePage() {
                 <p className="text-green-100 font-medium text-sm sm:text-base">Comprometimento Ambiental</p>
               </div>
             </RevealHero>
+            {/* Espaço extra abaixo dos cards do hero */}
+            <div className="h-10 sm:h-16" />
+            {/* Espaço extra no mobile entre os cards e os créditos de imagens aéreas */}
+            <div className="block sm:hidden h-16" />
           </div>
+        </div>
+
+        {/* Créditos do vídeo/imagens aéreas */}
+        <div className="absolute bottom-2 right-2 z-40 text-white/80 text-xs md:text-sm max-w-[90vw]">
+          Imagens aéreas de Itá - SC por{" "}
+          <a
+            href="https://www.youtube.com/@CAV07"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-green-200 break-all"
+          >
+            CAV07
+          </a>
         </div>
       </section>
 

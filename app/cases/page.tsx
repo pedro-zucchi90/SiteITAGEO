@@ -109,8 +109,8 @@ const cases = [
     year: "2024",
     images: [
       "/FiscalizacaoObras/fisc1.jpg",
-      "/FiscalizacaoObras/fisc2.jpg",
-      "/FiscalizacaoObras/fisc3.jpg",
+      "/FiscalizacaoObras/fisc2.JPG",
+      "/FiscalizacaoObras/fisc3.JPG",
       "/FiscalizacaoObras/fisc4.jpg",
       "/FiscalizacaoObras/fisc5.jpg",
     ],
